@@ -187,3 +187,78 @@ slider.addEventListener('touchend', function(e) {
 document.addEventListener('DOMContentLoaded', function() {
     updateSlider();
 });
+
+// Hero News Hover Functionality
+document.addEventListener('DOMContentLoaded', function() {
+    const newsCards = document.querySelectorAll('.news-card');
+    const heroNewsTitle = document.getElementById('heroNewsTitle');
+    const heroNewsDescription = document.getElementById('heroNewsDescription');
+    const heroNewsImage = document.getElementById('heroNewsImage');
+    
+    // Get the active card (first card by default)
+    let activeCard = document.querySelector('.news-card.active-card');
+    
+    // Store original hero content (from active card)
+    const originalTitle = activeCard ? activeCard.getAttribute('data-title') : heroNewsTitle.textContent;
+    const originalDescription = activeCard ? activeCard.getAttribute('data-description') : heroNewsDescription.textContent;
+    const originalImage = activeCard ? activeCard.getAttribute('data-image') : heroNewsImage.src;
+
+    newsCards.forEach(function(card) {
+        const newsTitle = card.querySelector('.news-title');
+        
+        card.addEventListener('mouseenter', function() {
+            // Remove active state from all cards
+            newsCards.forEach(function(otherCard) {
+                const otherTitle = otherCard.querySelector('.news-title');
+                if (otherCard !== this && !otherCard.classList.contains('active-card')) {
+                    otherCard.style.borderTopColor = '#6b7280'; // gray-500
+                    if (otherTitle) {
+                        otherTitle.style.color = '#374151'; // gray-800
+                    }
+                }
+            });
+
+            const title = this.getAttribute('data-title');
+            const description = this.getAttribute('data-description');
+            const image = this.getAttribute('data-image');
+
+            // Change hero content
+            if (title && description && image) {
+                heroNewsTitle.textContent = title;
+                heroNewsDescription.textContent = description;
+                heroNewsImage.src = image;
+                heroNewsImage.alt = title;
+            }
+
+            // Make news title red on hover and border red
+            if (newsTitle) {
+                newsTitle.style.color = '#dc2626'; // red-600
+            }
+            this.style.borderTopColor = '#dc2626'; // red-600
+        });
+
+        card.addEventListener('mouseleave', function() {
+            // Only reset if this is not the active card
+            if (!this.classList.contains('active-card')) {
+                // Reset hero content to original (active card content)
+                heroNewsTitle.textContent = originalTitle;
+                heroNewsDescription.textContent = originalDescription;
+                heroNewsImage.src = originalImage;
+                heroNewsImage.alt = "Main News";
+
+                // Reset news title color and border
+                if (newsTitle) {
+                    newsTitle.style.color = '#374151'; // gray-800
+                }
+                this.style.borderTopColor = '#6b7280'; // gray-500
+            }
+        });
+
+        // Add click functionality to navigate to full article
+        card.addEventListener('click', function() {
+            const title = this.getAttribute('data-title');
+            console.log('Clicked on news:', title);
+            alert('সংবাদ দেখুন: ' + title);
+        });
+    });
+});

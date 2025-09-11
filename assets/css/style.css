@@ -301,3 +301,142 @@ a:hover {
   -ms-overflow-style: none;
   scrollbar-width: none;
 }
+
+/* Hero News Section Styles */
+.news-card {
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.news-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+.news-card:before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+  transition: left 0.5s;
+}
+
+.news-card:hover:before {
+  left: 100%;
+}
+
+.news-title {
+  transition: color 0.3s ease;
+}
+
+/* Hero News Details Section */
+#heroNewsDetails {
+  transition: all 0.3s ease;
+}
+
+#heroNewsImage {
+  transition: all 0.3s ease;
+}
+
+/* Border Animation for News Cards */
+.news-card.border-t-4 {
+  position: relative;
+  border-top: 4px solid #6b7280; /* gray-500 default */
+  transition: border-color 0.3s ease;
+}
+
+.news-card:hover.border-t-4 {
+  border-top-color: #dc2626; /* red-600 on hover */
+}
+
+/* Active Card Styling */
+.news-card.active-card {
+  border-top-color: #dc2626 !important; /* red-600 for active */
+}
+
+.news-card.active-card .news-title {
+  color: #dc2626 !important; /* red-600 for active title */
+}
+
+/* Additional styling for news excerpts */
+.news-excerpt {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Sidebar Styles */
+.sticky {
+  position: sticky;
+}
+
+/* News Item Responsive */
+@media (max-width: 768px) {
+  .news-item {
+    margin-bottom: 1rem;
+  }
+  
+  #newsHoverDisplay {
+    margin-top: 1rem;
+    padding: 1rem;
+  }
+  
+  #newsHoverDisplay .flex {
+    flex-direction: column;
+  }
+  
+  #newsHoverDisplay img {
+    height: 200px;
+    margin-bottom: 1rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .lg\:w-3\/4 {
+    width: 100%;
+  }
+  
+  .lg\:w-1\/4 {
+    width: 100%;
+    margin-top: 2rem;
+  }
+  
+  .sticky {
+    position: relative;
+  }
+  
+  .grid-cols-1.md\:grid-cols-3 {
+    grid-template-columns: repeat(1, minmax(0, 1fr));
+  }
+}
+
+/* Advertisement Styles */
+.bg-red-600 {
+  background: linear-gradient(135deg, #dc2626, #b91c1c);
+}
+
+.bg-blue-600 {
+  background: linear-gradient(135deg, #2563eb, #1d4ed8);
+}
+
+/* Latest News Items Hover Effect */
+.divide-y > div:hover {
+  background: linear-gradient(90deg, #f8fafc, #f1f5f9);
+}
+
+/* Hero Image Overlay Enhancement */
+.bg-gradient-to-t {
+  background: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0.9) 0%,
+    rgba(0, 0, 0, 0.7) 50%,
+    rgba(0, 0, 0, 0.3) 80%,
+    transparent 100%
+  );
+}
