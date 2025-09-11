@@ -262,3 +262,39 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 });
+
+// News Tab Functionality
+document.addEventListener('DOMContentLoaded', function() {
+    const latestTab = document.getElementById('latestTab');
+    const popularTab = document.getElementById('popularTab');
+    const latestContent = document.getElementById('latestContent');
+    const popularContent = document.getElementById('popularContent');
+    const viewAllText = document.getElementById('viewAllText');
+
+    // Tab switching function
+    function switchTab(activeTab, inactiveTab, activeContent, inactiveContent, buttonText) {
+        // Update tab styles
+        activeTab.classList.remove('bg-gray-300', 'text-gray-700');
+        activeTab.classList.add('bg-blue-600', 'text-white');
+        
+        inactiveTab.classList.remove('bg-blue-600', 'text-white');
+        inactiveTab.classList.add('bg-gray-300', 'text-gray-700');
+        
+        // Show/hide content
+        activeContent.classList.remove('hidden');
+        inactiveContent.classList.add('hidden');
+        
+        // Update button text
+        viewAllText.textContent = buttonText;
+    }
+
+    // Latest tab click handler
+    latestTab.addEventListener('click', function() {
+        switchTab(latestTab, popularTab, latestContent, popularContent, 'সর্বশেষ সব খবর');
+    });
+
+    // Popular tab click handler
+    popularTab.addEventListener('click', function() {
+        switchTab(popularTab, latestTab, popularContent, latestContent, 'জনপ্রিয় সব খবর');
+    });
+});

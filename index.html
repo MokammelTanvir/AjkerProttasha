@@ -388,97 +388,239 @@
                     <div class="sticky top-4">
                         <!-- Advertisement Section -->
                         <div class="bg-white rounded-lg shadow-md overflow-hidden mb-6">
-                            <div class="bg-red-600 text-white text-center py-2">
-                                <h3 class="font-semibold text-sm">বিজ্ঞাপন</h3>
+                            <div class="text-center py-2">
+                                <h3 class="font-semibold text-sm text-black">বিজ্ঞাপন</h3>
                             </div>
                             <div class="p-4">
                                 <img src="assets/img/ads.png" alt="Advertisement" class="w-full h-auto rounded-lg">
                             </div>
                         </div>
 
-                        <!-- Latest News Sidebar -->
+                        <!-- Latest News Sidebar with Tabs -->
                         <div class="bg-white rounded-lg shadow-md overflow-hidden">
-                            <div class="bg-blue-600 text-white py-3 px-4">
-                                <h3 class="font-semibold">সেকশন- সর্বশেষ নিউজ থেকে ১৫টা</h3>
+                            <!-- Tab Headers -->
+                            <div class="flex">
+                                <button id="latestTab" class="tab-button flex-1 py-3 px-4 text-sm font-semibold bg-blue-600 text-white transition-colors duration-300">
+                                    সর্বশেষ
+                                </button>
+                                <button id="popularTab" class="tab-button flex-1 py-3 px-4 text-sm font-semibold bg-gray-300 text-gray-700 transition-colors duration-300">
+                                    সর্বাধিক পঠিত
+                                </button>
                             </div>
-                            <div class="divide-y divide-gray-200">
-                                <!-- Latest News Items -->
-                                <div class="p-4 hover:bg-gray-50 transition-colors cursor-pointer">
-                                    <div class="flex items-center space-x-2 mb-2">
-                                        <div class="w-2 h-2 bg-blue-600 rounded-full"></div>
-                                        <span class="text-xs text-gray-500">সর্বশেষ</span>
-                                    </div>
-                                    <h4 class="text-sm font-medium text-gray-800 leading-tight">
-                                        আগামী মেটা কোয়েল এক্সপ্রেস আল, মেলা রানি কবর
-                                    </h4>
-                                </div>
 
-                                <div class="p-4 hover:bg-gray-50 transition-colors cursor-pointer">
-                                    <div class="flex items-center space-x-2 mb-2">
-                                        <div class="w-2 h-2 bg-green-600 rounded-full"></div>
-                                        <span class="text-xs text-gray-500">সর্বশেষ পূর্ণ</span>
+                            <!-- Latest News Tab Content -->
+                            <div id="latestContent" class="tab-content">
+                                <div class="divide-y divide-gray-200">
+                                    <!-- Latest News Item 1 -->
+                                    <div class="p-4 hover:bg-gray-50 transition-colors cursor-pointer">
+                                        <div class="flex items-center space-x-2 mb-2">
+                                            <div class="w-2 h-2 bg-blue-600 rounded-full"></div>
+                                            <span class="text-xs text-gray-500">সর্বশেষ</span>
+                                        </div>
+                                        <h4 class="text-sm font-medium text-gray-800 leading-tight">
+                                            প্রধানমন্ত্রীর সাথে জাতিসংঘ মহাসচিবের বৈঠক অনুষ্ঠিত
+                                        </h4>
                                     </div>
-                                    <h4 class="text-sm font-medium text-gray-800 leading-tight">
-                                        যুক্তরাষ্ট্র সরকার এবিটি এর বিরুদ্ধে প্রতিরক্ষা বিভাগের আরো
-                                    </h4>
-                                </div>
 
-                                <div class="p-4 hover:bg-gray-50 transition-colors cursor-pointer">
-                                    <div class="flex items-center space-x-2 mb-2">
-                                        <div class="w-2 h-2 bg-purple-600 rounded-full"></div>
-                                        <span class="text-xs text-gray-500">সর্বশেষ পূর্ণ</span>
+                                    <div class="p-4 hover:bg-gray-50 transition-colors cursor-pointer">
+                                        <div class="flex items-center space-x-2 mb-2">
+                                            <div class="w-2 h-2 bg-green-600 rounded-full"></div>
+                                            <span class="text-xs text-gray-500">রাজনীতি</span>
+                                        </div>
+                                        <h4 class="text-sm font-medium text-gray-800 leading-tight">
+                                            নতুন অর্থনৈতিক নীতিমালা অনুমোদন পেয়েছে
+                                        </h4>
                                     </div>
-                                    <h4 class="text-sm font-medium text-gray-800 leading-tight">
-                                        পাকিস্তানের শীর্ষ এনএমএল মেসেজ লেখার পরিবর্তন
-                                    </h4>
-                                </div>
 
-                                <div class="p-4 hover:bg-gray-50 transition-colors cursor-pointer">
-                                    <div class="flex items-center space-x-2 mb-2">
-                                        <div class="w-2 h-2 bg-red-600 rounded-full"></div>
-                                        <span class="text-xs text-gray-500">চার্জিকের পর্যালোচনা বিষ বৃহৎ</span>
+                                    <div class="p-4 hover:bg-gray-50 transition-colors cursor-pointer">
+                                        <div class="flex items-center space-x-2 mb-2">
+                                            <div class="w-2 h-2 bg-purple-600 rounded-full"></div>
+                                            <span class="text-xs text-gray-500">শিক্ষা</span>
+                                        </div>
+                                        <h4 class="text-sm font-medium text-gray-800 leading-tight">
+                                            বিশ্ববিদ্যালয়ে ভর্তি পরীক্ষার তারিখ ঘোষণা
+                                        </h4>
                                     </div>
-                                    <h4 class="text-sm font-medium text-gray-800 leading-tight">
-                                        চার্জিকের পর্যালোচনা বিষ বৃহৎ
-                                    </h4>
-                                </div>
 
-                                <div class="p-4 hover:bg-gray-50 transition-colors cursor-pointer">
-                                    <div class="flex items-center space-x-2 mb-2">
-                                        <div class="w-2 h-2 bg-orange-600 rounded-full"></div>
-                                        <span class="text-xs text-gray-500">সর্বশেষ পূর্ণ</span>
+                                    <div class="p-4 hover:bg-gray-50 transition-colors cursor-pointer">
+                                        <div class="flex items-center space-x-2 mb-2">
+                                            <div class="w-2 h-2 bg-red-600 rounded-full"></div>
+                                            <span class="text-xs text-gray-500">স্বাস্থ্য</span>
+                                        </div>
+                                        <h4 class="text-sm font-medium text-gray-800 leading-tight">
+                                            কোভিড টিকাদান কর্মসূচি সম্প্রসারিত হবে
+                                        </h4>
                                     </div>
-                                    <h4 class="text-sm font-medium text-gray-800 leading-tight">
-                                        সাইদিনের বিষয়ে ১০ কোটি টাকার মরিয়াম খানার
-                                    </h4>
-                                </div>
 
-                                <div class="p-4 hover:bg-gray-50 transition-colors cursor-pointer">
-                                    <div class="flex items-center space-x-2 mb-2">
-                                        <div class="w-2 h-2 bg-teal-600 rounded-full"></div>
-                                        <span class="text-xs text-gray-500">সর্বশেষ পূর্ণ</span>
+                                    <div class="p-4 hover:bg-gray-50 transition-colors cursor-pointer">
+                                        <div class="flex items-center space-x-2 mb-2">
+                                            <div class="w-2 h-2 bg-orange-600 rounded-full"></div>
+                                            <span class="text-xs text-gray-500">খেলাধুলা</span>
+                                        </div>
+                                        <h4 class="text-sm font-medium text-gray-800 leading-tight">
+                                            জাতীয় ক্রিকেট দলের নতুন অধিনায়ক নিয়োগ
+                                        </h4>
                                     </div>
-                                    <h4 class="text-sm font-medium text-gray-800 leading-tight">
-                                        এক্সটেনশন বিষয়ে বিল বা, বছর বিদেশী ভুক্তিভোগী
-                                    </h4>
-                                </div>
 
-                                <div class="p-4 hover:bg-gray-50 transition-colors cursor-pointer">
-                                    <div class="flex items-center space-x-2 mb-2">
-                                        <div class="w-2 h-2 bg-indigo-600 rounded-full"></div>
-                                        <span class="text-xs text-gray-500">সর্বশেষ পূর্ণ</span>
+                                    <div class="p-4 hover:bg-gray-50 transition-colors cursor-pointer">
+                                        <div class="flex items-center space-x-2 mb-2">
+                                            <div class="w-2 h-2 bg-teal-600 rounded-full"></div>
+                                            <span class="text-xs text-gray-500">প্রযুক্তি</span>
+                                        </div>
+                                        <h4 class="text-sm font-medium text-gray-800 leading-tight">
+                                            ডিজিটাল বাংলাদেশ প্রকল্পে নতুন মাইলফলক
+                                        </h4>
                                     </div>
-                                    <h4 class="text-sm font-medium text-gray-800 leading-tight">
-                                        আমাদের হাতের বিভিন্ন হতে শেখার পদক্ষেপের এক্সপ্রেশন
-                                    </h4>
+
+                                    <div class="p-4 hover:bg-gray-50 transition-colors cursor-pointer">
+                                        <div class="flex items-center space-x-2 mb-2">
+                                            <div class="w-2 h-2 bg-indigo-600 rounded-full"></div>
+                                            <span class="text-xs text-gray-500">পরিবেশ</span>
+                                        </div>
+                                        <h4 class="text-sm font-medium text-gray-800 leading-tight">
+                                            জলবায়ু পরিবর্তন মোকাবেলায় নতুন পদক্ষেপ
+                                        </h4>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Popular News Tab Content -->
+                            <div id="popularContent" class="tab-content hidden">
+                                <div class="divide-y divide-gray-200">
+                                    <!-- Popular News Item 1 -->
+                                    <div class="p-4 hover:bg-gray-50 transition-colors cursor-pointer">
+                                        <div class="flex items-center space-x-2 mb-2">
+                                            <div class="w-2 h-2 bg-red-600 rounded-full"></div>
+                                            <span class="text-xs text-gray-500">জনপ্রিয়</span>
+                                        </div>
+                                        <h4 class="text-sm font-medium text-gray-800 leading-tight">
+                                            বাংলাদেশ-ভারত সম্পর্কে নতুন মাত্রা যোগ হয়েছে
+                                        </h4>
+                                    </div>
+
+                                    <div class="p-4 hover:bg-gray-50 transition-colors cursor-pointer">
+                                        <div class="flex items-center space-x-2 mb-2">
+                                            <div class="w-2 h-2 bg-blue-600 rounded-full"></div>
+                                            <span class="text-xs text-gray-500">আলোচিত</span>
+                                        </div>
+                                        <h4 class="text-sm font-medium text-gray-800 leading-tight">
+                                            তরুণ উদ্যোক্তাদের জন্য নতুন সুবিধা ঘোষণা
+                                        </h4>
+                                    </div>
+
+                                    <div class="p-4 hover:bg-gray-50 transition-colors cursor-pointer">
+                                        <div class="flex items-center space-x-2 mb-2">
+                                            <div class="w-2 h-2 bg-green-600 rounded-full"></div>
+                                            <span class="text-xs text-gray-500">ভাইরাল</span>
+                                        </div>
+                                        <h4 class="text-sm font-medium text-gray-800 leading-tight">
+                                            সামাজিক যোগাযোগ মাধ্যমে নতুন নিয়মনীতি
+                                        </h4>
+                                    </div>
+
+                                    <div class="p-4 hover:bg-gray-50 transition-colors cursor-pointer">
+                                        <div class="flex items-center space-x-2 mb-2">
+                                            <div class="w-2 h-2 bg-purple-600 rounded-full"></div>
+                                            <span class="text-xs text-gray-500">ট্রেন্ডিং</span>
+                                        </div>
+                                        <h4 class="text-sm font-medium text-gray-800 leading-tight">
+                                            মহিলা উদ্যোক্তাদের সাফল্যের গল্প
+                                        </h4>
+                                    </div>
+
+                                    <div class="p-4 hover:bg-gray-50 transition-colors cursor-pointer">
+                                        <div class="flex items-center space-x-2 mb-2">
+                                            <div class="w-2 h-2 bg-orange-600 rounded-full"></div>
+                                            <span class="text-xs text-gray-500">জনপ্রিয়</span>
+                                        </div>
+                                        <h4 class="text-sm font-medium text-gray-800 leading-tight">
+                                            শিক্ষার্থীদের জন্য বৃত্তি কর্মসূচি চালু
+                                        </h4>
+                                    </div>
+
+                                    <div class="p-4 hover:bg-gray-50 transition-colors cursor-pointer">
+                                        <div class="flex items-center space-x-2 mb-2">
+                                            <div class="w-2 h-2 bg-teal-600 rounded-full"></div>
+                                            <span class="text-xs text-gray-500">আলোচিত</span>
+                                        </div>
+                                        <h4 class="text-sm font-medium text-gray-800 leading-tight">
+                                            গ্রামীণ উন্নয়নে নতুন প্রকল্প হাতে নেওয়া হয়েছে
+                                        </h4>
+                                    </div>
+
+                                    <div class="p-4 hover:bg-gray-50 transition-colors cursor-pointer">
+                                        <div class="flex items-center space-x-2 mb-2">
+                                            <div class="w-2 h-2 bg-indigo-600 rounded-full"></div>
+                                            <span class="text-xs text-gray-500">হট টপিক</span>
+                                        </div>
+                                        <h4 class="text-sm font-medium text-gray-800 leading-tight">
+                                            পর্যটন শিল্পে নতুন সম্ভাবনার দ্বার খুলেছে
+                                        </h4>
+                                    </div>
                                 </div>
                             </div>
                             
                             <!-- View All Button -->
                             <div class="bg-blue-600 p-3 text-center">
-                                <a href="#" class="text-white text-sm font-medium hover:underline">
-                                    সর্বশেষ সব খবর
+                                <a href="#" class="text-white text-sm font-medium hover:underline hover:text-white">
+                                    <span id="viewAllText">সর্বশেষ সব খবর</span>
                                 </a>
+                            </div>
+                        </div>
+
+                        <!-- Opinion Section -->
+                        <div class="bg-white rounded-lg shadow-md overflow-hidden mt-6">
+                            <!-- Opinion Header -->
+                            <div class="bg-gray-50 px-4 py-2 border-l-4 border-blue-600">
+                                <h4 class="font-bold text-gray-800">মতামত</h4>
+                            </div>
+
+                            <div class="divide-y divide-gray-200">
+                                <!-- Opinion Item 1 -->
+                                <div class="p-4 hover:bg-gray-50 transition-colors cursor-pointer">
+                                    <div class="flex items-start space-x-3">
+                                        <div class="flex-shrink-0">
+                                            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=60&h=60&fit=crop&crop=face&auto=format" 
+                                                 alt="Author" class="w-12 h-12 rounded-full object-cover border-2 border-gray-200">
+                                        </div>
+                                        <div class="flex-1 min-w-0">
+                                            <p class="text-sm font-medium text-gray-800 leading-tight mb-1">
+                                                জনবায়ু সংকট, পৃথিবীর ভবিষ্যৎ এবং বাংলাদেশের অগ্রগতি
+                                            </p>
+                                            <p class="text-xs text-blue-600 font-medium">
+                                                ডা. মতিউর রহমান
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Opinion Item 2 -->
+                                <div class="p-4 hover:bg-gray-50 transition-colors cursor-pointer">
+                                    <div class="flex items-start space-x-3">
+                                        <div class="flex-shrink-0">
+                                            <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=60&h=60&fit=crop&crop=face&auto=format" 
+                                                 alt="Author" class="w-12 h-12 rounded-full object-cover border-2 border-gray-200">
+                                        </div>
+                                        <div class="flex-1 min-w-0">
+                                            <p class="text-sm font-medium text-gray-800 leading-tight mb-1">
+                                                সার, গল্পটা থেমে গেলো
+                                            </p>
+                                            <p class="text-xs text-blue-600 font-medium">
+                                                দেবব্রত চক্রবর্তী বিপু
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Advertisement Section 2 -->
+                        <div class="bg-white rounded-lg shadow-md overflow-hidden mt-6">
+                            <div class="text-center py-2">
+                                <h3 class="font-semibold text-sm text-black">বিজ্ঞাপন</h3>
+                            </div>
+                            <div class="p-4">
+                                <img src="assets/img/ads.png" alt="Advertisement" class="w-full h-auto rounded-lg">
                             </div>
                         </div>
                     </div>
