@@ -297,6 +297,29 @@ document.addEventListener('DOMContentLoaded', function() {
     popularTab.addEventListener('click', function() {
         switchTab(popularTab, latestTab, popularContent, latestContent, 'জনপ্রিয় সব খবর');
     });
+
+    // Poll option selection functionality
+    const pollOptions = document.querySelectorAll('.poll-option');
+    
+    pollOptions.forEach(option => {
+        option.addEventListener('click', function() {
+            // Remove selected state from all options
+            pollOptions.forEach(opt => {
+                const inner = opt.querySelector('.poll-inner');
+                inner.classList.remove('w-3', 'h-3');
+                inner.classList.add('w-0', 'h-0');
+            });
+            
+            // Add selected state to clicked option
+            const inner = this.querySelector('.poll-inner');
+            inner.classList.remove('w-0', 'h-0');
+            inner.classList.add('w-3', 'h-3');
+            
+            // Update hidden radio input
+            const input = this.querySelector('.poll-input');
+            input.checked = true;
+        });
+    });
 });
 
 // YouTube Video Player Functionality
