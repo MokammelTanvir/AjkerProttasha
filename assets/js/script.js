@@ -298,3 +298,119 @@ document.addEventListener('DOMContentLoaded', function() {
         switchTab(popularTab, latestTab, popularContent, latestContent, 'জনপ্রিয় সব খবর');
     });
 });
+
+// YouTube Video Player Functionality
+document.addEventListener('DOMContentLoaded', function() {
+    const videoCards = document.querySelectorAll('.youtube-video-card');
+    const mainVideoTitle = document.getElementById('mainVideoTitle');
+    const mainVideoDescription = document.getElementById('mainVideoDescription');
+    const mainThumbnail = document.getElementById('mainThumbnail');
+    const defaultThumbnail = document.getElementById('defaultThumbnail');
+    const youtubeEmbed = document.getElementById('youtubeEmbed');
+    const youtubePlayer = document.getElementById('youtubePlayer');
+    const mainPlayButton = document.getElementById('mainPlayButton');
+    
+    // Store current video data
+    let currentVideoData = {
+        videoId: 'dQw4w9WgXcQ',
+        title: 'আন্তর্জাতিক আদালতের রায়ে পাকিস্তানের জয়, কাঁদছে ভারত',
+        description: 'হেভলাই শো করবে মেট্রিভিকেশান শো করবে। হেভলাই শো করবে মেট্রিভিকেশান শো করবে হেভলাই শো করবে মেট্রিভিকেশান শো করবে।',
+        thumbnail: 'assets/img/thubnail.jpg'
+    };
+
+    // Function to load YouTube video
+    function loadYouTubeVideo(videoId, autoplay = false) {
+        const embedUrl = `https://www.youtube.com/embed/${videoId}?enablejsapi=1&rel=0&showinfo=0&modestbranding=1${autoplay ? '&autoplay=1' : ''}`;
+        youtubePlayer.src = embedUrl;
+        
+        // Show embed, hide thumbnail
+        defaultThumbnail.classList.add('hidden');
+        youtubeEmbed.classList.remove('hidden');
+    }
+
+    // Function to show thumbnail
+    function showThumbnail(thumbnail, title, description) {
+        // Hide embed, show thumbnail
+        youtubeEmbed.classList.add('hidden');
+        defaultThumbnail.classList.remove('hidden');
+        
+        // Update thumbnail and info
+        mainThumbnail.src = thumbnail;
+        mainThumbnail.alt = title;
+        mainVideoTitle.textContent = title;
+        mainVideoDescription.textContent = description;
+    }
+
+    // Main play button click handler
+    mainPlayButton.addEventListener('click', function() {
+        loadYouTubeVideo(currentVideoData.videoId, true);
+    });
+
+    // Video card click handlers
+    videoCards.forEach(function(card) {
+        card.addEventListener('click', function() {
+            const videoId = this.getAttribute('data-video-id');
+            const title = this.getAttribute('data-title');
+            const description = this.getAttribute('data-description');
+            const thumbnail = this.getAttribute('data-thumbnail');
+            
+            if (videoId && title && description && thumbnail) {
+                // Update current video data
+                currentVideoData = {
+                    videoId: videoId,
+                    title: title,
+                    description: description,
+                    thumbnail: thumbnail
+                };
+                
+                // Remove active state from all cards
+                videoCards.forEach(function(otherCard) {
+                    otherCard.classList.remove('ring-2', 'ring-red-500');
+                });
+                
+                // Add active state to clicked card
+                this.classList.add('ring-2', 'ring-red-500');
+                
+                // Load the video immediately
+                loadYouTubeVideo(videoId, true);
+                
+                // Update title and description
+                mainVideoTitle.textContent = title;
+                mainVideoDescription.textContent = description;
+            }
+        });
+        
+        // Add hover effects
+        card.addEventListener('mouseenter', function() {
+            if (!this.classList.contains('ring-2')) {
+                this.classList.add('ring-1', 'ring-red-400');
+            }
+        });
+        
+        card.addEventListener('mouseleave', function() {
+            if (!this.classList.contains('ring-2')) {
+                this.classList.remove('ring-1', 'ring-red-400');
+            }
+        });
+    });
+
+    // Function to stop video when needed
+    function stopVideo() {
+        youtubePlayer.src = '';
+        youtubeEmbed.classList.add('hidden');
+        defaultThumbnail.classList.remove('hidden');
+    }
+
+    // Optional: Stop video when clicking outside
+    document.addEventListener('click', function(event) {
+        const mainVideoPlayer = document.getElementById('mainVideoPlayer');
+        const isClickInsidePlayer = mainVideoPlayer.contains(event.target);
+        const isClickOnVideoCard = event.target.closest('.youtube-video-card');
+        
+        // Don't stop video if clicking on player or video cards
+        if (!isClickInsidePlayer && !isClickOnVideoCard) {
+            // Uncomment the line below if you want to stop video when clicking outside
+            // stopVideo();
+        }
+    });
+});
