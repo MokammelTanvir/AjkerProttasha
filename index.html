@@ -1534,7 +1534,7 @@
                 </div>
 
                 <!-- Right Column - 25% -->
-                <div class="lg:w-1/4 space-y-4">
+                <div class="lg:w-1/4 space-y-4 relative">
                     <!-- News Card 1 -->
                     <div class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow cursor-pointer">
                         <div class="relative">
@@ -1578,17 +1578,281 @@
         </div>
     </section>
 
-    <!-- Bottom Advertisement Section -->
+    <!-- Advertisement Section -->
     <section class="bg-white py-6">
         <div class="container mx-auto px-4">
             <div class="flex justify-end">
-                <div class="w-full max-w-2xl">
+                <div class="w-full max-w-4xl">
                     <div class="bg-white rounded-lg shadow-md overflow-hidden">
-                        <div class="text-center py-2 bg-gray-100">
-                            <h4 class="font-semibold text-sm text-gray-800">বিজ্ঞাপন</h4>
+                        <div class="text-center py-3 bg-gray-100">
+                            <h4 class="font-semibold text-base text-gray-800">বিজ্ঞাপন</h4>
                         </div>
-                        <div class="p-4">
+                        <div class="p-6">
                             <img src="assets/img/ads-long.png" alt="Advertisement" class="w-full h-auto rounded-lg">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Binodon News Section -->
+    <section class="bg-white py-8">
+        <div class="container mx-auto px-4">
+            <!-- Section Header -->
+            <div class="flex items-center mb-4">
+                <div class="w-1 h-8 bg-blue-600 mr-3"></div>
+                <h2 class="text-2xl font-bold text-gray-800">বিনোদন</h2>
+            </div>
+
+            <!-- Horizontal Divider Line -->
+            <div class="border-t-4 border-gray-300 mb-6"></div>
+
+            <!-- Two Column Layout: Left 50%, Right 50% -->
+            <div class="flex flex-col lg:flex-row gap-6">
+                
+                <!-- Left Column - 50% -->
+                <div class="lg:w-1/2">
+                    <!-- Main Entertainment News with Large Image -->
+                    <div class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow cursor-pointer">
+                        <div class="relative">
+                            <img src="https://images.unsplash.com/photo-1440404653325-ab127d49abc1?w=600&h=400&fit=crop&auto=format&q=80" 
+                                 alt="Entertainment News" class="w-full h-96 object-cover">
+                        </div>
+                        <div class="p-6 mt-8">
+                            <h3 class="font-bold text-gray-800 text-2xl leading-tight hover:text-blue-600 transition-colors mb-4">
+                                এবার দেব-শুভশ্রীকে নিয়ে বিশেষ বাতি রাজ চক্রবর্তীর
+                            </h3>
+                            <p class="text-gray-600 text-base leading-relaxed">
+                                ওপার বাংলার বড় পর্দায় মুক্তি পেয়েছে দেব-শুভশ্রীর 'ড্রামকেলট'। এই ছবির হাত ধরেই প্রাম ১০ বছর পর ফের বাংলার দর্শকদের কাছে ফিরেছেন শুভশ্রী। আর এই ছবিতে রয়েছে দেব-শুভশ্রীর অসাধারণ অভিনয় এবং পরিচালক রাজ চক্রবর্তীর দুর্দান্ত পরিচালনা। ছবিটি মুক্তির পর থেকেই ব্যাপক জনপ্রিয়তা পেয়েছে এবং দর্শকদের কাছে প্রশংসিত হয়েছে। বিশেষ করে দেব এবং শুভশ্রীর রসায়ন দর্শকদের মুগ্ধ করেছে। ছবির গান এবং নৃত্যও ব্যাপক সাড়া ফেলেছে বাংলা চলচ্চিত্র জগতে।
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Column - 50% Slider -->
+                <div class="lg:w-1/2 relative">
+                    <div class="binodon-slider-container relative overflow-hidden">
+                        <!-- Navigation Buttons -->
+                        <button id="binodonPrevBtn" class="absolute left-0 top-1/2 transform -translate-y-1/2 z-10 bg-white shadow-lg rounded-full p-2 hover:bg-gray-100 transition-colors">
+                            <svg class="w-6 h-6 text-gray-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/>
+                            </svg>
+                        </button>
+                        
+                        <button id="binodonNextBtn" class="absolute right-0 top-1/2 transform -translate-y-1/2 z-10 bg-white shadow-lg rounded-full p-2 hover:bg-gray-100 transition-colors">
+                            <svg class="w-6 h-6 text-gray-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                            </svg>
+                        </button>
+
+                        <!-- Slider Content -->
+                        <div class="binodon-slider flex transition-transform duration-300 ease-in-out">
+                            <!-- Slide 1 - First 6 items -->
+                            <div class="binodon-slide min-w-full">
+                                <div class="grid grid-cols-3 gap-4 h-full">
+                                    <!-- Row 1 -->
+                                    <!-- Item 1 -->
+                                    <div class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow cursor-pointer">
+                                        <div class="relative">
+                                            <img src="https://images.unsplash.com/photo-1512070679279-8988d32161be?w=200&h=300&fit=crop&auto=format&q=80" 
+                                                 alt="Entertainment" class="w-full h-64 object-cover">
+                                        </div>
+                                        <div class="p-3">
+                                            <h4 class="font-semibold text-gray-800 text-sm leading-tight hover:text-blue-600 transition-colors mb-2">
+                                                ফিকরিছেন 'রেণুকন্যা সামিরা'
+                                            </h4>
+                                            <p class="text-gray-600 text-xs leading-relaxed">
+                                                প্রাম এক মুহূর্তও সেলিম সমর পর্ব সামরা শাহের সর্বোচ্চ...
+                                            </p>
+                                        </div>
+                                    </div>
+
+                                    <!-- Item 2 -->
+                                    <div class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow cursor-pointer">
+                                        <div class="relative">
+                                            <img src="https://images.unsplash.com/photo-1594736797933-d0501ba2fe65?w=200&h=300&fit=crop&auto=format&q=80" 
+                                                 alt="Entertainment" class="w-full h-64 object-cover">
+                                        </div>
+                                        <div class="p-3">
+                                            <h4 class="font-semibold text-gray-800 text-sm leading-tight hover:text-blue-600 transition-colors mb-2">
+                                                বিটিভিতে ফিরছে নতুন
+                                            </h4>
+                                            <p class="text-gray-600 text-xs leading-relaxed">
+                                                প্রাম দুই দশক পর আবার বাংলার পর্দায় ফিরছে নতুন...
+                                            </p>
+                                        </div>
+                                    </div>
+
+                                    <!-- Item 3 -->
+                                    <div class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow cursor-pointer">
+                                        <div class="relative">
+                                            <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=200&h=300&fit=crop&auto=format&q=80" 
+                                                 alt="Entertainment" class="w-full h-64 object-cover">
+                                        </div>
+                                        <div class="p-3">
+                                            <h4 class="font-semibold text-gray-800 text-sm leading-tight hover:text-blue-600 transition-colors mb-2">
+                                                প্রথমবার সিনেমার বিপক্ষে তুমি
+                                            </h4>
+                                            <p class="text-gray-600 text-xs leading-relaxed">
+                                                সমসময় শাহের পিছনে থাকা বল কত বলা জন্য...
+                                            </p>
+                                        </div>
+                                    </div>
+
+                                    <!-- Row 2 -->
+                                    <!-- Item 4 -->
+                                    <div class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow cursor-pointer">
+                                        <div class="relative">
+                                            <img src="https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=200&h=300&fit=crop&auto=format&q=80" 
+                                                 alt="Entertainment" class="w-full h-64 object-cover">
+                                        </div>
+                                        <div class="p-3">
+                                            <h4 class="font-semibold text-gray-800 text-sm leading-tight hover:text-blue-600 transition-colors mb-2">
+                                                ব্রাহ্মণীর জন্মদিনে দেশী চৌধুরীর টিকার
+                                            </h4>
+                                            <p class="text-gray-600 text-xs leading-relaxed">
+                                                আজ ১৬ অগাস্ট প্রিয়াঙ্কা চোপড়ার জন্মদিন। তিনি বছর...
+                                            </p>
+                                        </div>
+                                    </div>
+
+                                    <!-- Item 5 -->
+                                    <div class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow cursor-pointer">
+                                        <div class="relative">
+                                            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=200&h=300&fit=crop&auto=format&q=80" 
+                                                 alt="Entertainment" class="w-full h-64 object-cover">
+                                        </div>
+                                        <div class="p-3">
+                                            <h4 class="font-semibold text-gray-800 text-sm leading-tight hover:text-blue-600 transition-colors mb-2">
+                                                এবার কানাভায় নয় মানুষ
+                                            </h4>
+                                            <p class="text-gray-600 text-xs leading-relaxed">
+                                                সোনালি রানা নায়িকা হিসেবে কিন্তু আমাদের পর্দায়...
+                                            </p>
+                                        </div>
+                                    </div>
+
+                                    <!-- Item 6 -->
+                                    <div class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow cursor-pointer">
+                                        <div class="relative">
+                                            <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=200&h=300&fit=crop&auto=format&q=80" 
+                                                 alt="Entertainment" class="w-full h-64 object-cover">
+                                        </div>
+                                        <div class="p-3">
+                                            <h4 class="font-semibold text-gray-800 text-sm leading-tight hover:text-blue-600 transition-colors mb-2">
+                                                জ্যাকে বিক্রুত মহিলা বলতেন কেনা
+                                            </h4>
+                                            <p class="text-gray-600 text-xs leading-relaxed">
+                                                সোনালিপাসা কথা বলার জন্য পেয়েছেন থেকেছেন...
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Slide 2 - Next 6 items -->
+                            <div class="binodon-slide min-w-full">
+                                <div class="grid grid-cols-3 gap-4 h-full">
+                                    <!-- Row 1 -->
+                                    <!-- Item 7 -->
+                                    <div class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow cursor-pointer">
+                                        <div class="relative">
+                                            <img src="https://images.unsplash.com/photo-1485178575877-1a13bf489dfe?w=200&h=300&fit=crop&auto=format&q=80" 
+                                                 alt="Entertainment" class="w-full h-64 object-cover">
+                                        </div>
+                                        <div class="p-3">
+                                            <h4 class="font-semibold text-gray-800 text-sm leading-tight hover:text-blue-600 transition-colors mb-2">
+                                                নতুন সিনেমায় শাকিব খান
+                                            </h4>
+                                            <p class="text-gray-600 text-xs leading-relaxed">
+                                                আগামী মাসে মুক্তি পাবে শাকিব খানের নতুন সিনেমা...
+                                            </p>
+                                        </div>
+                                    </div>
+
+                                    <!-- Item 8 -->
+                                    <div class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow cursor-pointer">
+                                        <div class="relative">
+                                            <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=200&h=300&fit=crop&auto=format&q=80" 
+                                                 alt="Entertainment" class="w-full h-64 object-cover">
+                                        </div>
+                                        <div class="p-3">
+                                            <h4 class="font-semibold text-gray-800 text-sm leading-tight hover:text-blue-600 transition-colors mb-2">
+                                                টেলিভিশনে নতুন ধারাবাহিক
+                                            </h4>
+                                            <p class="text-gray-600 text-xs leading-relaxed">
+                                                আগামী সপ্তাহ থেকে শুরু হচ্ছে নতুন ধারাবাহিক...
+                                            </p>
+                                        </div>
+                                    </div>
+
+                                    <!-- Item 9 -->
+                                    <div class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow cursor-pointer">
+                                        <div class="relative">
+                                            <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=200&h=300&fit=crop&auto=format&q=80" 
+                                                 alt="Entertainment" class="w-full h-64 object-cover">
+                                        </div>
+                                        <div class="p-3">
+                                            <h4 class="font-semibold text-gray-800 text-sm leading-tight hover:text-blue-600 transition-colors mb-2">
+                                                সঙ্গীত জগতে নতুন তারকা
+                                            </h4>
+                                            <p class="text-gray-600 text-xs leading-relaxed">
+                                                বাংলা সঙ্গীত জগতে আবির্ভাব হয়েছে নতুন তারকার...
+                                            </p>
+                                        </div>
+                                    </div>
+
+                                    <!-- Row 2 -->
+                                    <!-- Item 10 -->
+                                    <div class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow cursor-pointer">
+                                        <div class="relative">
+                                            <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=200&h=300&fit=crop&auto=format&q=80" 
+                                                 alt="Entertainment" class="w-full h-64 object-cover">
+                                        </div>
+                                        <div class="p-3">
+                                            <h4 class="font-semibold text-gray-800 text-sm leading-tight hover:text-blue-600 transition-colors mb-2">
+                                                থিয়েটারে নতুন নাটক
+                                            </h4>
+                                            <p class="text-gray-600 text-xs leading-relaxed">
+                                                ঢাকার মঞ্চে আসছে নতুন নাটক যা দর্শকদের মুগ্ধ করবে...
+                                            </p>
+                                        </div>
+                                    </div>
+
+                                    <!-- Item 11 -->
+                                    <div class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow cursor-pointer">
+                                        <div class="relative">
+                                            <img src="https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?w=200&h=300&fit=crop&auto=format&q=80" 
+                                                 alt="Entertainment" class="w-full h-64 object-cover">
+                                        </div>
+                                        <div class="p-3">
+                                            <h4 class="font-semibold text-gray-800 text-sm leading-tight hover:text-blue-600 transition-colors mb-2">
+                                                বলিউডে বাংলাদেশি অভিনেত্রী
+                                            </h4>
+                                            <p class="text-gray-600 text-xs leading-relaxed">
+                                                বলিউডে সুযোগ পেয়েছেন বাংলাদেশি অভিনেত্রী...
+                                            </p>
+                                        </div>
+                                    </div>
+
+                                    <!-- Item 12 -->
+                                    <div class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow cursor-pointer">
+                                        <div class="relative">
+                                            <img src="https://images.unsplash.com/photo-1517841905240-472988babdf9?w=200&h=300&fit=crop&auto=format&q=80" 
+                                                 alt="Entertainment" class="w-full h-64 object-cover">
+                                        </div>
+                                        <div class="p-3">
+                                            <h4 class="font-semibold text-gray-800 text-sm leading-tight hover:text-blue-600 transition-colors mb-2">
+                                                আন্তর্জাতিক পুরস্কার জিতলেন
+                                            </h4>
+                                            <p class="text-gray-600 text-xs leading-relaxed">
+                                                আন্তর্জাতিক চলচ্চিত্র উৎসবে পুরস্কার জিতেছেন...
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -1605,5 +1869,31 @@
 
     <!-- Custom JavaScript -->
     <script src="assets/js/script.js"></script>
+    
+    <!-- Binodon Slider JavaScript -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const slider = document.querySelector('.binodon-slider');
+            const prevBtn = document.getElementById('binodonPrevBtn');
+            const nextBtn = document.getElementById('binodonNextBtn');
+            let currentSlide = 0;
+            const totalSlides = 2; // Total number of slides
+
+            function updateSlider() {
+                const translateX = -currentSlide * 100;
+                slider.style.transform = `translateX(${translateX}%)`;
+            }
+
+            nextBtn.addEventListener('click', function() {
+                currentSlide = (currentSlide + 1) % totalSlides;
+                updateSlider();
+            });
+
+            prevBtn.addEventListener('click', function() {
+                currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
+                updateSlider();
+            });
+        });
+    </script>
 </body>
 </html>
