@@ -4,14 +4,62 @@ document.addEventListener('DOMContentLoaded', function() {
     console.log('আজকের প্রত্যাশা - Ready!');
 });
 
-// Toggle Mobile Menu
+// Toggle Mobile Menu (old function - kept for compatibility)
 function toggleMobileMenu() {
     const mobileMenu = document.getElementById('mobileMenu');
-    if (mobileMenu.classList.contains('hidden')) {
+    if (mobileMenu && mobileMenu.classList.contains('hidden')) {
         mobileMenu.classList.remove('hidden');
-    } else {
+    } else if (mobileMenu) {
         mobileMenu.classList.add('hidden');
     }
+}
+
+// Toggle Side Mobile Menu
+function toggleSideMobileMenu() {
+    const sideMenu = document.getElementById('mobileSideMenu');
+    const overlay = document.getElementById('mobileMenuOverlay');
+    const sliderArrows = document.querySelectorAll('.slider-nav-btn');
+    
+    if (sideMenu.classList.contains('-translate-x-full')) {
+        // Open menu
+        sideMenu.classList.remove('-translate-x-full');
+        sideMenu.classList.add('translate-x-0');
+        overlay.classList.remove('hidden');
+        // Hide slider arrows when menu is open
+        sliderArrows.forEach(arrow => {
+            arrow.style.display = 'none';
+        });
+        // Prevent body scrolling
+        document.body.style.overflow = 'hidden';
+    } else {
+        // Close menu
+        sideMenu.classList.remove('translate-x-0');
+        sideMenu.classList.add('-translate-x-full');
+        overlay.classList.add('hidden');
+        // Show slider arrows when menu is closed
+        sliderArrows.forEach(arrow => {
+            arrow.style.display = 'flex';
+        });
+        // Restore body scrolling
+        document.body.style.overflow = '';
+    }
+}
+
+// Close Side Mobile Menu
+function closeSideMobileMenu() {
+    const sideMenu = document.getElementById('mobileSideMenu');
+    const overlay = document.getElementById('mobileMenuOverlay');
+    const sliderArrows = document.querySelectorAll('.slider-nav-btn');
+    
+    sideMenu.classList.remove('translate-x-0');
+    sideMenu.classList.add('-translate-x-full');
+    overlay.classList.add('hidden');
+    // Show slider arrows when menu is closed
+    sliderArrows.forEach(arrow => {
+        arrow.style.display = 'flex';
+    });
+    // Restore body scrolling
+    document.body.style.overflow = '';
 }
 
 // Toggle Search Bar
@@ -29,13 +77,25 @@ function toggleSearch() {
     }
 }
 
-// Close mobile menu when clicking outside
+// Close mobile menu when clicking outside (updated for side menu)
 document.addEventListener('click', function(event) {
     const mobileMenu = document.getElementById('mobileMenu');
+    const sideMenu = document.getElementById('mobileSideMenu');
     const mobileMenuButton = event.target.closest('button[onclick="toggleMobileMenu()"]');
+    const sideMenuButton = event.target.closest('button[onclick="toggleSideMobileMenu()"]');
     
-    if (!mobileMenuButton && !mobileMenu.contains(event.target)) {
+    // Handle old mobile menu if exists
+    if (mobileMenu && !mobileMenuButton && !mobileMenu.contains(event.target)) {
         mobileMenu.classList.add('hidden');
+    }
+    
+    // Handle side mobile menu
+    if (sideMenu && !sideMenuButton && !sideMenu.contains(event.target) && !sideMenu.classList.contains('-translate-x-full')) {
+        // Only close if clicking outside and menu is open
+        const overlay = document.getElementById('mobileMenuOverlay');
+        if (event.target === overlay) {
+            closeSideMobileMenu();
+        }
     }
 });
 
@@ -87,12 +147,32 @@ document.addEventListener('DOMContentLoaded', function() {
 let currentSlide = 0;
 const slider = document.getElementById('videoSlider');
 const totalCards = document.querySelectorAll('#videoSlider > div').length;
-const cardWidth = 320; // 320px (w-80 + margin)
-let cardsPerView = Math.floor(window.innerWidth / cardWidth);
+
+// Dynamic card width and cards per view based on screen size
+function getSliderSettings() {
+    const screenWidth = window.innerWidth;
+    if (screenWidth <= 480) {
+        // Mobile: full width minus arrow space (70px each side)
+        return { cardWidth: screenWidth - 140, cardsPerView: 1 };
+    } else if (screenWidth <= 768) {
+        return { cardWidth: 300, cardsPerView: Math.floor(screenWidth / 320) };
+    } else {
+        return { cardWidth: 320, cardsPerView: Math.floor(screenWidth / 340) };
+    }
+}
+
+let { cardWidth, cardsPerView } = getSliderSettings();
 
 function updateSlider() {
+    const settings = getSliderSettings();
+    cardWidth = settings.cardWidth;
+    cardsPerView = settings.cardsPerView;
+    
     const translateX = -currentSlide * cardWidth;
-    slider.style.transform = `translateX(${translateX}px)`;
+    if (slider) {
+        slider.style.transform = `translateX(${translateX}px)`;
+        console.log(`Slider updated: currentSlide=${currentSlide}, cardWidth=${cardWidth}, cardsPerView=${cardsPerView}, translateX=${translateX}px`);
+    }
 }
 
 function nextSlide() {
@@ -116,10 +196,13 @@ document.getElementById('prevBtn').addEventListener('click', prevSlide);
 
 // Handle window resize
 window.addEventListener('resize', function() {
-    cardsPerView = Math.floor(window.innerWidth / cardWidth);
-    const maxSlide = totalCards - cardsPerView;
+    const settings = getSliderSettings();
+    cardsPerView = settings.cardsPerView;
+    cardWidth = settings.cardWidth;
+    
+    const maxSlide = Math.max(0, totalCards - cardsPerView);
     if (currentSlide > maxSlide) {
-        currentSlide = Math.max(0, maxSlide);
+        currentSlide = maxSlide;
     }
     updateSlider();
 });
