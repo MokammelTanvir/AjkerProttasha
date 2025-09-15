@@ -1,0 +1,728 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ক্যাটাগরি নিউজ - আজকের প্রত্যাশা</title>
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="assets/css/style.css">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="assets/img/logo.png">
+</head>
+<body class="bg-gray-50 min-h-screen">
+    
+    <!-- Header -->
+    <header>
+        <!-- Top Section - White Background (Hidden on Mobile) -->
+        <div class="hidden md:block bg-white border-b border-gray-200 header-shadow">
+            <div class="container mx-auto px-4 py-3">
+                <div class="flex items-center justify-between">
+                    <!-- Left - Date -->
+                    <div class="text-sm text-gray-600 header-date">
+                        <div class="font-medium">বুধবার, ০৮ আগস্ট ২০২৫</div>
+                        <div class="text-xs">২৪ শ্রাবণ ১৪৩২ বঙ্গাব্দ</div>
+                    </div>
+                    
+                    <!-- Center - Logo -->
+                    <div class="flex-1 flex justify-center">
+                        <img src="assets/img/logo.png" alt="আজকের প্রত্যাশা" class="h-16 w-auto header-logo">
+                    </div>
+                    
+                    <!-- Right - Social Media Icons -->
+                    <div class="flex items-center space-x-3 social-icons">
+                        <!-- Facebook -->
+                        <a href="#" class="w-10 h-10 bg-blue-600 rounded-full flex items-center justify-center hover:bg-blue-700 transition-colors">
+                            <svg class="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+                            </svg>
+                        </a>
+                        
+                        <!-- YouTube -->
+                        <a href="#" class="w-10 h-10 bg-red-600 rounded-full flex items-center justify-center hover:bg-red-700 transition-colors">
+                            <svg class="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+                            </svg>
+                        </a>
+                        
+                        <!-- Instagram -->
+                        <a href="#" class="w-10 h-10 bg-gradient-to-br from-purple-600 via-pink-600 to-orange-500 rounded-full flex items-center justify-center hover:from-purple-700 hover:via-pink-700 hover:to-orange-600 transition-colors">
+                            <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <rect x="2" y="2" width="20" height="20" rx="5" ry="5" stroke-width="2"/>
+                                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" stroke-width="2"/>
+                                <circle cx="17.5" cy="6.5" r="1.5" fill="currentColor"/>
+                            </svg>
+                        </a>
+                        
+                        <!-- Twitter -->
+                        <a href="#" class="w-10 h-10 bg-blue-400 rounded-full flex items-center justify-center hover:bg-blue-500 transition-colors">
+                            <svg class="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"/>
+                            </svg>
+                        </a>
+
+                        <!-- LinkedIn -->
+                        <a href="#" class="w-10 h-10 bg-blue-700 rounded-full flex items-center justify-center hover:bg-blue-800 transition-colors">
+                            <svg class="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Navigation Bar - Blue Background -->
+        <nav class="bg-blue-700 text-white">
+            <div class="container mx-auto px-4">
+                <!-- Desktop Layout -->
+                <div class="hidden md:flex items-center justify-between">
+                    <!-- Left - Home Icon -->
+                    <div class="flex items-center">
+                        <a href="index.html" class="p-3 hover:bg-blue-600 transition-colors text-white hover:text-white">
+                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/>
+                            </svg>
+                        </a>
+                    </div>
+                    
+                    <!-- Center - Menu Items -->
+                    <div class="flex items-center space-x-1">
+                        <a href="#" class="px-4 py-3 hover:bg-blue-600 transition-colors text-sm font-medium nav-item text-white hover:text-white">সর্বশেষ</a>
+                        <a href="#" class="px-4 py-3 hover:bg-blue-600 transition-colors text-sm font-medium nav-item text-white hover:text-white">জাতীয়</a>
+                        <a href="#" class="px-4 py-3 hover:bg-blue-600 transition-colors text-sm font-medium nav-item text-white hover:text-white">রাজনীতি</a>
+                        <a href="#" class="px-4 py-3 hover:bg-blue-600 transition-colors text-sm font-medium nav-item text-white hover:text-white">আন্তর্জাতিক</a>
+                        <a href="#" class="px-4 py-3 hover:bg-blue-600 transition-colors text-sm font-medium nav-item text-white hover:text-white">সারাদেশ</a>
+                        <a href="#" class="px-4 py-3 hover:bg-blue-600 transition-colors text-sm font-medium nav-item text-white hover:text-white">অর্থনীতি</a>
+                        <a href="#" class="px-4 py-3 hover:bg-blue-600 transition-colors text-sm font-medium nav-item text-white hover:text-white">খেলাধুলা</a>
+                        <a href="#" class="px-4 py-3 hover:bg-blue-600 transition-colors text-sm font-medium nav-item text-white hover:text-white">বিনোদন</a>
+                        <a href="#" class="px-4 py-3 hover:bg-blue-600 transition-colors text-sm font-medium nav-item text-white hover:text-white">শিক্ষা</a>
+                        <a href="#" class="px-4 py-3 hover:bg-blue-600 transition-colors text-sm font-medium nav-item text-white hover:text-white">ভিডিও</a>
+                        <a href="#" class="px-4 py-3 hover:bg-blue-600 transition-colors text-sm font-medium nav-item text-white hover:text-white">ইউপার</a>
+                        <a href="#" class="px-4 py-3 hover:bg-blue-600 transition-colors text-sm font-medium nav-item text-white hover:text-white">অন্যান্য</a>
+                    </div>
+                    
+                    <!-- Right - Search Icon -->
+                    <div class="flex items-center">
+                        <button class="p-3 hover:bg-blue-600 transition-colors" onclick="toggleSearch()">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Mobile Layout -->
+                <div class="md:hidden flex items-center justify-between py-2">
+                    <!-- Left - Home Icon -->
+                    <div class="flex items-center">
+                        <a href="index.html" class="p-3 hover:bg-blue-600 transition-colors text-white hover:text-white">
+                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/>
+                            </svg>
+                        </a>
+                    </div>
+                    
+                    <!-- Center - Logo -->
+                    <div class="flex-1 flex justify-center">
+                        <img src="assets/img/logo.png" alt="আজকের প্রত্যাশা" class="h-10 w-auto">
+                    </div>
+                    
+                    <!-- Right - Hamburger Menu -->
+                    <div class="flex items-center">
+                        <button class="p-3 hover:bg-blue-600 transition-colors" onclick="toggleSideMobileMenu()">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Search Bar -->
+                <div id="searchBar" class="hidden border-t border-blue-600 py-3">
+                    <div class="flex items-center space-x-2">
+                        <input type="text" placeholder="অনুসন্ধান করুন..." class="flex-1 px-4 py-2 rounded-md text-gray-900 focus:outline-none focus:ring-2 focus:ring-blue-300">
+                        <button class="bg-blue-600 hover:bg-blue-500 px-4 py-2 rounded-md transition-colors">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Mobile Side Menu -->
+    <div id="mobileSideMenu" class="fixed inset-y-0 left-0 z-50 w-80 bg-white shadow-xl transform -translate-x-full transition-transform duration-300 ease-in-out md:hidden flex flex-col" style="z-index: 10000;">
+        <!-- Menu Header -->
+        <div class="bg-blue-700 text-white p-4 flex items-center justify-between flex-shrink-0">
+            <div class="flex items-center">
+                <img src="assets/img/logo.png" alt="আজকের প্রত্যাশা" class="h-8 w-auto">
+            </div>
+            <button onclick="closeSideMobileMenu()" class="p-2 hover:bg-blue-600 transition-colors rounded-md">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+                </svg>
+            </button>
+        </div>
+
+        <!-- Scrollable Menu Content -->
+        <div class="flex-1 overflow-y-auto">
+            <!-- Menu Items -->
+            <div class="py-4">
+            <div class="px-4 py-2">
+                <div class="relative">
+                    <input type="text" placeholder="অনুসন্ধান করুন..." class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+                    <button class="absolute right-2 top-2 text-gray-400 hover:text-blue-600">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+            
+            <nav class="mt-4">
+                <a href="index.html" class="flex items-center px-4 py-3 text-gray-700 hover:bg-blue-50 hover:text-blue-700 transition-colors border-l-4 border-transparent hover:border-blue-700">
+                    <svg class="w-5 h-5 mr-3" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/>
+                    </svg>
+                    হোম
+                </a>
+                <a href="#" class="flex items-center px-4 py-3 text-gray-700 hover:bg-blue-50 hover:text-blue-700 transition-colors border-l-4 border-transparent hover:border-blue-700">
+                    <svg class="w-5 h-5 mr-3" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                    </svg>
+                    সর্বশেষ
+                </a>
+                <a href="#" class="flex items-center px-4 py-3 text-gray-700 hover:bg-blue-50 hover:text-blue-700 transition-colors border-l-4 border-transparent hover:border-blue-700">
+                    <svg class="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9.5a2 2 0 00-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8z"/>
+                    </svg>
+                    জাতীয়
+                </a>
+                <a href="#" class="flex items-center px-4 py-3 text-gray-700 hover:bg-blue-50 hover:text-blue-700 transition-colors border-l-4 border-transparent hover:border-blue-700">
+                    <svg class="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>
+                    </svg>
+                    রাজনীতি
+                </a>
+                <a href="#" class="flex items-center px-4 py-3 text-gray-700 hover:bg-blue-50 hover:text-blue-700 transition-colors border-l-4 border-transparent hover:border-blue-700">
+                    <svg class="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064"/>
+                    </svg>
+                    আন্তর্জাতিক
+                </a>
+                <a href="#" class="flex items-center px-4 py-3 text-gray-700 hover:bg-blue-50 hover:text-blue-700 transition-colors border-l-4 border-transparent hover:border-blue-700">
+                    <svg class="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
+                    </svg>
+                    সারাদেশ
+                </a>
+                <a href="#" class="flex items-center px-4 py-3 text-gray-700 hover:bg-blue-50 hover:text-blue-700 transition-colors border-l-4 border-transparent hover:border-blue-700">
+                    <svg class="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1"/>
+                    </svg>
+                    অর্থনীতি
+                </a>
+                <a href="#" class="flex items-center px-4 py-3 text-gray-700 hover:bg-blue-50 hover:text-blue-700 transition-colors border-l-4 border-transparent hover:border-blue-700">
+                    <svg class="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
+                    </svg>
+                    খেলাধুলা
+                </a>
+                <a href="#" class="flex items-center px-4 py-3 text-gray-700 hover:bg-blue-50 hover:text-blue-700 transition-colors border-l-4 border-transparent hover:border-blue-700">
+                    <svg class="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 4V2a1 1 0 011-1h8a1 1 0 011 1v2m3 0v16a1 1 0 01-1 1H5a1 1 0 01-1-1V4h16zM9 9v10h6V9H9z"/>
+                    </svg>
+                    বিনোদন
+                </a>
+                <a href="#" class="flex items-center px-4 py-3 text-gray-700 hover:bg-blue-50 hover:text-blue-700 transition-colors border-l-4 border-transparent hover:border-blue-700">
+                    <svg class="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/>
+                    </svg>
+                    শিক্ষা
+                </a>
+                <a href="#" class="flex items-center px-4 py-3 text-gray-700 hover:bg-blue-50 hover:text-blue-700 transition-colors border-l-4 border-transparent hover:border-blue-700">
+                    <svg class="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"/>
+                    </svg>
+                    ভিডিও
+                </a>
+                <a href="#" class="flex items-center px-4 py-3 text-gray-700 hover:bg-blue-50 hover:text-blue-700 transition-colors border-l-4 border-transparent hover:border-blue-700">
+                    <svg class="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2"/>
+                    </svg>
+                    ইউপার
+                </a>
+                <a href="#" class="flex items-center px-4 py-3 text-gray-700 hover:bg-blue-50 hover:text-blue-700 transition-colors border-l-4 border-transparent hover:border-blue-700">
+                    <svg class="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+                    </svg>
+                    অন্যান্য
+                </a>
+            </nav>
+
+            <!-- Social Media Icons Section -->
+            <div class="mt-8 px-4 py-4 border-t border-gray-200">
+                <div class="flex justify-center space-x-3">
+                    <!-- Facebook -->
+                    <a href="#" class="w-10 h-10 bg-blue-600 rounded-full flex items-center justify-center hover:bg-blue-700 transition-colors">
+                        <svg class="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+                        </svg>
+                    </a>
+
+                    <!-- Twitter -->
+                    <a href="#" class="w-10 h-10 bg-blue-400 rounded-full flex items-center justify-center hover:bg-blue-500 transition-colors">
+                        <svg class="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"/>
+                        </svg>
+                    </a>
+
+                    <!-- YouTube -->
+                    <a href="#" class="w-10 h-10 bg-red-600 rounded-full flex items-center justify-center hover:bg-red-700 transition-colors">
+                        <svg class="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+                        </svg>
+                    </a>
+
+                    <!-- Instagram -->
+                    <a href="#" class="w-10 h-10 bg-gradient-to-br from-purple-600 via-pink-600 to-orange-500 rounded-full flex items-center justify-center hover:from-purple-700 hover:via-pink-700 hover:to-orange-600 transition-colors">
+                        <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <rect x="2" y="2" width="20" height="20" rx="5" ry="5" stroke-width="2"/>
+                            <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" stroke-width="2"/>
+                            <circle cx="17.5" cy="6.5" r="1.5" fill="currentColor"/>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <main class="w-full py-8">
+        <!-- Page Title -->
+        <div class="container mx-auto px-4 mb-8">
+            <h1 class="text-3xl md:text-4xl font-bold text-gray-800 mb-2">ক্যাটাগরি নিউজ</h1>
+            <div class="h-1 w-20 bg-blue-700"></div>
+        </div>
+
+        <!-- Main Layout: 70% Content + 30% Ads -->
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col lg:flex-row gap-8">
+                <!-- Left Content Area (70%) -->
+                <div class="lg:w-[70%]">
+                <!-- Featured News Section -->
+                <div class="bg-white rounded-lg shadow-md overflow-hidden mb-8">
+                    <div class="flex flex-col md:flex-row">
+                        <!-- Featured Image (Left) -->
+                        <div class="md:w-1/2">
+                            <img src="https://images.unsplash.com/photo-1504711434969-e33886168f5c?w=600&h=400&fit=crop&crop=center" alt="Featured News" class="w-full h-64 md:h-full object-cover">
+                        </div>
+                        <!-- Featured Content (Right) -->
+                        <div class="md:w-1/2 p-6">
+                            <div class="flex items-center text-sm text-gray-500 mb-3">
+                                <span class="bg-blue-100 text-blue-800 px-2 py-1 rounded text-xs font-medium mr-3">জাতীয়</span>
+                                <span>আজকের ১৮ আগস্ট ২০২৫ | ১৫:৩৩</span>
+                            </div>
+                            <h2 class="text-xl md:text-2xl font-bold text-gray-900 mb-4 leading-tight">কৃত্রিম জয়ে মৌসুম শুরু পিএসজির</h2>
+                            <p class="text-gray-700 text-sm md:text-base leading-relaxed mb-4">ফ্রান্স লিগ ওয়ানের নতুন মৌসুম জয় দিয়ে শুরু করল পিএসজি। মৌসুমের প্রথম ম্যাচে ১-০ গোলে হারিয়েছে বুই একাদশ দল</p>
+                            <a href="#" class="inline-flex items-center text-blue-700 hover:text-blue-900 font-medium">
+                                বিস্তারিত পড়ুন
+                                <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            
+            <!-- Right Sidebar (30%) - Advertisement -->
+            <div class="lg:w-[30%]">
+                <div class="sticky top-4">
+                    <!-- Advertisement Banner -->
+                    <div class="mt-6 bg-gradient-to-br from-blue-500 to-purple-600 rounded-lg overflow-hidden shadow-lg">
+                        <img src="https://images.unsplash.com/photo-1560472354-b33ff0c44a43?w=400&h=300&fit=crop&crop=center" alt="Sponsor Ad" class="w-full h-auto object-cover">
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+
+        <!-- News Cards Grid - Full Width -->
+        <div class="w-full mt-12">
+            <div class="container mx-auto px-4">
+                <div id="newsGrid" class="space-y-8">
+                    <!-- First Row of News Cards -->
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                        <!-- News Card 1 -->
+                        <div class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow">
+                            <img src="https://images.unsplash.com/photo-1495020689067-958852a7765e?w=300&h=200&fit=crop&crop=center" alt="News 1" class="w-full h-48 object-cover">
+                            <div class="p-4">
+                                <div class="text-xs text-gray-500 mb-2">আজকের ১৭ আগস্ট ২০২৫ | ১৪:২৫</div>
+                                <h3 class="font-bold text-gray-900 text-sm mb-2 leading-tight">পরিবার পানি পানের পরেও পানিমন্ত্রী হতেন? সমস্যা এড়াতে কী করবেন?</h3>
+                                <p class="text-gray-600 text-xs leading-relaxed">বিস্তারিত খবর পড়তে ক্লিক করুন...</p>
+                            </div>
+                        </div>
+
+                        <!-- News Card 2 -->
+                        <div class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow">
+                            <img src="https://images.unsplash.com/photo-1498837167922-ddd27525d352?w=300&h=200&fit=crop&crop=center" alt="News 2" class="w-full h-48 object-cover">
+                            <div class="p-4">
+                                <div class="text-xs text-gray-500 mb-2">আজকের ১৬ আগস্ট ২০২৫ | ১৩:৫০</div>
+                                <h3 class="font-bold text-gray-900 text-sm mb-2 leading-tight">কাটা পেঁয়াজ -সবজি দীর্ঘ দিন তাজা রাখবেন যেভাবে</h3>
+                                <p class="text-gray-600 text-xs leading-relaxed">সহজ উপায়ে খাবার সংরক্ষণ করুন...</p>
+                            </div>
+                        </div>
+
+                        <!-- News Card 3 -->
+                        <div class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow">
+                            <img src="https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=300&h=200&fit=crop&crop=center" alt="News 3" class="w-full h-48 object-cover">
+                            <div class="p-4">
+                                <div class="text-xs text-gray-500 mb-2">আজকের ১৬ আগস্ট ২০২৫ | ১৩:০২</div>
+                                <h3 class="font-bold text-gray-900 text-sm mb-2 leading-tight">ডায়বেটিস বলে কাজ করলেই পা ফুলে যায়? মেনে চলুন কিছু নিয়ম</h3>
+                                <p class="text-gray-600 text-xs leading-relaxed">স্বাস্থ্য টিপস এবং পরামর্শ...</p>
+                            </div>
+                        </div>
+
+                        <!-- News Card 4 -->
+                        <div class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow">
+                            <img src="https://images.unsplash.com/photo-1461896836934-ffe607ba8211?w=300&h=200&fit=crop&crop=center" alt="News 4" class="w-full h-48 object-cover">
+                            <div class="p-4">
+                                <div class="text-xs text-gray-500 mb-2">আজকের ১৮ আগস্ট ২০২৫ | ১৫:০৮</div>
+                                <h3 class="font-bold text-gray-900 text-sm mb-2 leading-tight">লা লিগের সামার কাল্টারশন</h3>
+                                <p class="text-gray-600 text-xs leading-relaxed">খেলাধুলার সর্বশেষ খবর...</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Second Row of News Cards -->
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                        <!-- News Card 5 -->
+                        <div class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow">
+                            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=300&h=200&fit=crop&crop=center" alt="News 5" class="w-full h-48 object-cover">
+                            <div class="p-4">
+                                <div class="text-xs text-gray-500 mb-2">আজকের ১৭ আগস্ট ২০২৫ | ১২:৪৫</div>
+                                <h3 class="font-bold text-gray-900 text-sm mb-2 leading-tight">শিক্ষা ক্ষেত্রে নতুন পরিবর্তন আনতে চায় সরকার</h3>
+                                <p class="text-gray-600 text-xs leading-relaxed">শিক্ষা সংস্কারের বিস্তারিত...</p>
+                            </div>
+                        </div>
+
+                        <!-- News Card 6 -->
+                        <div class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow">
+                            <img src="https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=300&h=200&fit=crop&crop=center" alt="News 6" class="w-full h-48 object-cover">
+                            <div class="p-4">
+                                <div class="text-xs text-gray-500 mb-2">আজকের ১৬ আগস্ট ২০২৫ | ১১:৩০</div>
+                                <h3 class="font-bold text-gray-900 text-sm mb-2 leading-tight">অর্থনীতিতে নতুন দিগন্ত উন্মোচিত হচ্ছে</h3>
+                                <p class="text-gray-600 text-xs leading-relaxed">অর্থনৈতিক উন্নয়নের খবর...</p>
+                            </div>
+                        </div>
+
+                        <!-- News Card 7 -->
+                        <div class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow">
+                            <img src="https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=300&h=200&fit=crop&crop=center" alt="News 7" class="w-full h-48 object-cover">
+                            <div class="p-4">
+                                <div class="text-xs text-gray-500 mb-2">আজকের ১৫ আগস্ট ২০২৫ | ১০:১৫</div>
+                                <h3 class="font-bold text-gray-900 text-sm mb-2 leading-tight">পরিবেশ রক্ষায় নতুন উদ্যোগ নিয়েছে সরকার</h3>
+                                <p class="text-gray-600 text-xs leading-relaxed">পরিবেশ সংরক্ষণের পদক্ষেপ...</p>
+                            </div>
+                        </div>
+
+                        <!-- News Card 8 -->
+                        <div class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow">
+                            <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?w=300&h=200&fit=crop&crop=center" alt="News 8" class="w-full h-48 object-cover">
+                            <div class="p-4">
+                                <div class="text-xs text-gray-500 mb-2">আজকের ১৫ আগস্ট ২০২৫ | ০৯:৪৫</div>
+                                <h3 class="font-bold text-gray-900 text-sm mb-2 leading-tight">প্রযুক্তির নতুন আবিষ্কার দেশকে এগিয়ে নিয়ে যাচ্ছে</h3>
+                                <p class="text-gray-600 text-xs leading-relaxed">প্রযুক্তির অগ্রগতির খবর...</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Third Row of News Cards -->
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                        <!-- News Card 9 -->
+                        <div class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow">
+                            <img src="https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=300&h=200&fit=crop&crop=center" alt="News 9" class="w-full h-48 object-cover">
+                            <div class="p-4">
+                                <div class="text-xs text-gray-500 mb-2">আজকের ১৪ আগস্ট ২০২৫ | ১৬:২০</div>
+                                <h3 class="font-bold text-gray-900 text-sm mb-2 leading-tight">সাংস্কৃতিক অনুষ্ঠানে মেতে উঠেছে সারাদেশ</h3>
+                                <p class="text-gray-600 text-xs leading-relaxed">সাংস্কৃতিক কর্মকাণ্ডের খবর...</p>
+                            </div>
+                        </div>
+
+                        <!-- News Card 10 -->
+                        <div class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow">
+                            <img src="https://images.unsplash.com/photo-1477281765962-ef34e8bb0967?w=300&h=200&fit=crop&crop=center" alt="News 10" class="w-full h-48 object-cover">
+                            <div class="p-4">
+                                <div class="text-xs text-gray-500 mb-2">আজকের ১৪ আগস্ট ২০২৫ | ১৫:১০</div>
+                                <h3 class="font-bold text-gray-900 text-sm mb-2 leading-tight">আন্তর্জাতিক পর্যায়ে বাংলাদেশের সুনাম বৃদ্ধি</h3>
+                                <p class="text-gray-600 text-xs leading-relaxed">আন্তর্জাতিক সম্পর্কের উন্নতি...</p>
+                            </div>
+                        </div>
+
+                        <!-- News Card 11 -->
+                        <div class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow">
+                            <img src="https://images.unsplash.com/photo-1574269909862-7e1d70bb8078?w=300&h=200&fit=crop&crop=center" alt="News 11" class="w-full h-48 object-cover">
+                            <div class="p-4">
+                                <div class="text-xs text-gray-500 mb-2">আজকের ১৩ আগস্ট ২০২৫ | ১৪:৩৫</div>
+                                <h3 class="font-bold text-gray-900 text-sm mb-2 leading-tight">কৃষি ক্ষেত্রে বিপ্লব ঘটাতে পারে নতুন পদ্ধতি</h3>
+                                <p class="text-gray-600 text-xs leading-relaxed">কৃষি উৎপাদনের নতুন কৌশল...</p>
+                            </div>
+                        </div>
+
+                        <!-- News Card 12 -->
+                        <div class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow">
+                            <img src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?w=300&h=200&fit=crop&crop=center" alt="News 12" class="w-full h-48 object-cover">
+                            <div class="p-4">
+                                <div class="text-xs text-gray-500 mb-2">আজকের ১৩ আগস্ট ২০২৫ | ১৩:২৫</div>
+                                <h3 class="font-bold text-gray-900 text-sm mb-2 leading-tight">স্বাস্থ্যসেবায় যুগান্তকারী পরিবর্তন আসছে</h3>
+                                <p class="text-gray-600 text-xs leading-relaxed">স্বাস্থ্য ব্যবস্থার উন্নয়ন...</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Load More Button -->
+                <div class="text-center mt-12">
+                    <button id="loadMoreBtn" class="bg-blue-700 hover:bg-blue-800 text-white font-bold py-3 px-8 rounded-lg transition-colors inline-flex items-center">
+                        <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"></path>
+                        </svg>
+                        আরও পড়ুন
+                    </button>
+                </div>
+
+                <!-- Hidden Additional News Cards (Will be shown on "Load More") -->
+                <div id="additionalNews" class="hidden space-y-8 mt-8">
+                    <!-- Fourth Row of News Cards -->
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                        <!-- Additional News Card 1 -->
+                        <div class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow">
+                            <img src="https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?w=300&h=200&fit=crop&crop=center" alt="Extra News 1" class="w-full h-48 object-cover">
+                            <div class="p-4">
+                                <div class="text-xs text-gray-500 mb-2">আজকের ১২ আগস্ট ২০২৫ | ১২:১৫</div>
+                                <h3 class="font-bold text-gray-900 text-sm mb-2 leading-tight">যোগাযোগ ব্যবস্থার উন্নয়নে নতুন প্রকল্প</h3>
+                                <p class="text-gray-600 text-xs leading-relaxed">পরিবহন ব্যবস্থার আধুনিকায়ন...</p>
+                            </div>
+                        </div>
+
+                        <!-- Additional News Card 2 -->
+                        <div class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow">
+                            <img src="https://images.unsplash.com/photo-1486312338219-ce68e2c6b696?w=300&h=200&fit=crop&crop=center" alt="Extra News 2" class="w-full h-48 object-cover">
+                            <div class="p-4">
+                                <div class="text-xs text-gray-500 mb-2">আজকের ১২ আগস্ট ২০২৫ | ১১:৪৫</div>
+                                <h3 class="font-bold text-gray-900 text-sm mb-2 leading-tight">শিল্প কারখানায় নিরাপত্তা ব্যবস্থা জোরদার</h3>
+                                <p class="text-gray-600 text-xs leading-relaxed">কর্মী নিরাপত্তার নতুন পদক্ষেপ...</p>
+                            </div>
+                        </div>
+
+                        <!-- Additional News Card 3 -->
+                        <div class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow">
+                            <img src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?w=300&h=200&fit=crop&crop=center" alt="Extra News 3" class="w-full h-48 object-cover">
+                            <div class="p-4">
+                                <div class="text-xs text-gray-500 mb-2">আজকের ১১ আগস্ট ২০২৫ | ১০:৩০</div>
+                                <h3 class="font-bold text-gray-900 text-sm mb-2 leading-tight">তরুণদের কর্মসংস্থানে সরকারি উদ্যোগ</h3>
+                                <p class="text-gray-600 text-xs leading-relaxed">যুব উন্নয়নের নতুন পরিকল্পনা...</p>
+                            </div>
+                        </div>
+
+                        <!-- Additional News Card 4 -->
+                        <div class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow">
+                            <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=300&h=200&fit=crop&crop=center" alt="Extra News 4" class="w-full h-48 object-cover">
+                            <div class="p-4">
+                                <div class="text-xs text-gray-500 mb-2">আজকের ১১ আগস্ট ২০২৫ | ০৯:২০</div>
+                                <h3 class="font-bold text-gray-900 text-sm mb-2 leading-tight">ডিজিটাল বাংলাদেশ গড়ার নতুন পদক্ষেপ</h3>
+                                <p class="text-gray-600 text-xs leading-relaxed">তথ্য প্রযুক্তির বিস্তার...</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-200 text-gray-800 py-8 mt-auto">
+        <div class="container mx-auto px-4">
+            <!-- Top Navigation Menu - 5 Columns -->
+            <div class="flex flex-wrap md:flex-nowrap justify-between mb-8">
+                <!-- Column 1: বিভাগীয় নীতিমালা -->
+                <div class="text-center px-4 border-r border-gray-400 last:border-r-0">
+                    <a href="#" class="font-bold text-lg text-gray-800 hover:text-red-600 transition-colors block mb-1">বিভাগীয়</a>
+                    <a href="#" class="font-bold text-lg text-gray-800 hover:text-red-600 transition-colors block">নীতিমালা</a>
+                </div>
+
+                <!-- Column 2: আর্কাইভ ই-পেপার -->
+                <div class="text-center px-4 border-r border-gray-400 last:border-r-0">
+                    <a href="#" class="font-bold text-lg text-gray-800 hover:text-red-600 transition-colors block mb-1">আর্কাইভ</a>
+                    <a href="#" class="font-bold text-lg text-gray-800 hover:text-red-600 transition-colors block">ই-পেপার</a>
+                </div>
+
+                <!-- Column 3: ছবি অনুষ্ঠান -->
+                <div class="text-center px-4 border-r border-gray-400 last:border-r-0">
+                    <a href="#" class="font-bold text-lg text-gray-800 hover:text-red-600 transition-colors block mb-1">ছবি</a>
+                    <a href="#" class="font-bold text-lg text-gray-800 hover:text-red-600 transition-colors block">অনুষ্ঠান</a>
+                </div>
+
+                <!-- Column 4: বাংলা কনভার্টার আমাদের সম্পর্কে -->
+                <div class="text-center px-4 border-r border-gray-400 last:border-r-0">
+                    <a href="#" class="font-bold text-lg text-gray-800 hover:text-red-600 transition-colors block mb-1">বাংলা কনভার্টার</a>
+                    <a href="#" class="font-bold text-lg text-gray-800 hover:text-red-600 transition-colors block">আমাদের সম্পর্কে</a>
+                </div>
+
+                <!-- Column 5: ভিডিও যোগাযোগ -->
+                <div class="text-center px-4">
+                    <a href="#" class="font-bold text-lg text-gray-800 hover:text-red-600 transition-colors block mb-1">ভিডিও</a>
+                    <a href="#" class="font-bold text-lg text-gray-800 hover:text-red-600 transition-colors block">যোগাযোগ</a>
+                </div>
+            </div>
+
+            <!-- Horizontal Divider Line -->
+            <div class="border-t-2 border-gray-400 mb-8"></div>
+
+            <!-- Bottom Widget Section - 3 Columns -->
+            <div class="flex flex-wrap md:flex-nowrap mb-6">
+                <!-- Left Column: সম্পাদক Details -->
+                <div class="flex-1 text-center md:text-left px-6 border-r border-gray-400">
+                    <h3 class="font-bold text-xl text-gray-800 mb-4">সম্পাদক: ডা. মোঃ আহসানুল কবির</h3>
+                    <div class="text-gray-700 text-sm leading-relaxed space-y-1">
+                        <p>প্রকাশক: মেশ তানভীর আহমেদ কর্তৃক ন্যাশনাল প্রিন্টিং প্রেস,</p>
+                        <p>১৬৭ ইনার সার্কুলার রোড,</p>
+                        <p>মতিঝিল থেকে মুদ্রিত</p>
+                        <p>ও ৫৬ এ এইচ টাওয়ার (৯ম তলা),</p>
+                        <p>রোড নং-২, সেক্টর নং-৩,</p>
+                        <p>উত্তরা মডেল টাউন, ঢাকা-১২৩০ থেকে প্রকাশিত।</p>
+                    </div>
+                </div>
+
+                <!-- Center Column: যোগাযোগ Contact Info -->
+                <div class="flex-1 text-center px-6 border-r border-gray-400">
+                    <h3 class="font-bold text-xl text-gray-800 mb-4">যোগাযোগ:</h3>
+                    <div class="text-gray-700 text-sm leading-relaxed space-y-2">
+                        <p class="font-semibold">বার্তা ও বাণিজ্যিক কার্যালয়:</p>
+                        <p>৭/আই দক্ষিণ তেজগাঁও</p>
+                        <p>শিল্প এলাকা, ঢাকা-১২০৮।</p>
+                        <p class="font-semibold mt-3">ফোন: ৪৮৯৫৬৯৩০,</p>
+                        <p>৪৮৯৫৬৯৩১, মোবাইল: ০১৭১১-২৩৫৪৭০,</p>
+                        <p>০১৯১৩-৫০৯৫২৮, ই-মেইল:</p>
+                    </div>
+                </div>
+
+                <!-- Right Column: Social Media Icons and Logo -->
+                <div class="flex-1 text-center md:text-right px-6">
+                    <div class="mb-6">
+                        <h4 class="font-bold text-lg text-gray-800 mb-4">ফলো করুন আজকের প্রত্যাশার-এর খবর</h4>
+                        <!-- Social Media Icons -->
+                        <div class="flex justify-center md:justify-end space-x-3 mb-4">
+                            <!-- Facebook -->
+                            <a href="#" class="w-10 h-10 bg-blue-600 rounded-full flex items-center justify-center hover:bg-blue-700 transition-colors">
+                                <svg class="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+                                </svg>
+                            </a>
+
+                            <!-- Twitter -->
+                            <a href="#" class="w-10 h-10 bg-blue-400 rounded-full flex items-center justify-center hover:bg-blue-500 transition-colors">
+                                <svg class="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"/>
+                                </svg>
+                            </a>
+
+                            <!-- LinkedIn -->
+                            <a href="#" class="w-10 h-10 bg-blue-700 rounded-full flex items-center justify-center hover:bg-blue-800 transition-colors">
+                                <svg class="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                                </svg>
+                            </a>
+
+                            <!-- YouTube -->
+                            <a href="#" class="w-10 h-10 bg-red-600 rounded-full flex items-center justify-center hover:bg-red-700 transition-colors">
+                                <svg class="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+                                </svg>
+                            </a>
+
+                            <!-- Instagram -->
+                            <a href="#" class="w-10 h-10 bg-gradient-to-br from-purple-600 via-pink-600 to-orange-500 rounded-full flex items-center justify-center hover:from-purple-700 hover:via-pink-700 hover:to-orange-600 transition-colors">
+                                <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <rect x="2" y="2" width="20" height="20" rx="5" ry="5" stroke-width="2"/>
+                                    <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" stroke-width="2"/>
+                                    <circle cx="17.5" cy="6.5" r="1.5" fill="currentColor"/>
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Logo -->
+                    <div class="flex justify-center md:justify-end mb-4">
+                        <img src="assets/img/logo.png" alt="আজকের প্রত্যাশা লোগো" class="h-16 w-auto">
+                    </div>
+                    
+                    <!-- Footer Credit -->
+                    <div class="text-center md:text-right">
+                        <p class="text-gray-600 text-sm">© ২০০৫ আজকের প্রত্যাশা কর্তৃক সর্বস্বত্ব ® সংরক্ষিত</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Custom JavaScript -->
+    <script src="assets/js/script.js"></script>
+    
+    <!-- Category News Page JavaScript -->
+    <script>
+        // Load More Functionality
+        document.getElementById('loadMoreBtn').addEventListener('click', function() {
+            const additionalNews = document.getElementById('additionalNews');
+            const loadMoreBtn = document.getElementById('loadMoreBtn');
+            
+            // Show additional news
+            additionalNews.classList.remove('hidden');
+            
+            // Hide the load more button
+            loadMoreBtn.style.display = 'none';
+            
+            // Smooth scroll to additional content
+            additionalNews.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        });
+
+        // Search functionality
+        function toggleSearch() {
+            const searchBar = document.getElementById('searchBar');
+            searchBar.classList.toggle('hidden');
+        }
+
+        // Mobile menu functionality
+        function toggleSideMobileMenu() {
+            const mobileMenu = document.getElementById('mobileSideMenu');
+            mobileMenu.classList.remove('-translate-x-full');
+        }
+
+        function closeSideMobileMenu() {
+            const mobileMenu = document.getElementById('mobileSideMenu');
+            mobileMenu.classList.add('-translate-x-full');
+        }
+
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', function(event) {
+            const mobileMenu = document.getElementById('mobileSideMenu');
+            const menuButton = event.target.closest('[onclick="toggleSideMobileMenu()"]');
+            
+            if (!mobileMenu.contains(event.target) && !menuButton) {
+                mobileMenu.classList.add('-translate-x-full');
+            }
+        });
+    </script>
+</body>
+</html>
