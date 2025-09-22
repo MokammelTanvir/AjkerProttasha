@@ -2,6 +2,17 @@
 
 document.addEventListener('DOMContentLoaded', function() {
     console.log('আজকের প্রত্যাশা - Ready!');
+    
+    // Debug: Check if Load More elements exist
+    const loadMoreBtn = document.getElementById('loadMoreBtn');
+    const additionalNews = document.getElementById('additionalNews');
+    
+    console.log('Load More Button:', loadMoreBtn ? 'Found' : 'Not Found');
+    console.log('Additional News Section:', additionalNews ? 'Found' : 'Not Found');
+    
+    if (loadMoreBtn) {
+        console.log('Load More Button text:', loadMoreBtn.textContent.trim());
+    }
 });
 
 // Toggle Mobile Menu (old function - kept for compatibility)
@@ -77,12 +88,42 @@ function toggleSearch() {
     }
 }
 
+// Toggle Desktop Sliding Menu
+function toggleDesktopMenu() {
+    const desktopMenu = document.getElementById('desktopSlidingMenu');
+    if (desktopMenu.classList.contains('hidden')) {
+        desktopMenu.classList.remove('hidden');
+        // Add smooth slide down animation
+        desktopMenu.style.maxHeight = '0';
+        desktopMenu.style.overflow = 'hidden';
+        desktopMenu.style.transition = 'max-height 0.3s ease-out';
+        
+        // Trigger the animation
+        setTimeout(() => {
+            desktopMenu.style.maxHeight = '300px'; // Adjust height as needed
+        }, 10);
+    } else {
+        // Add smooth slide up animation
+        desktopMenu.style.maxHeight = '0';
+        desktopMenu.style.transition = 'max-height 0.3s ease-in';
+        
+        // Hide after animation
+        setTimeout(() => {
+            desktopMenu.classList.add('hidden');
+            desktopMenu.style.maxHeight = '';
+            desktopMenu.style.transition = '';
+        }, 300);
+    }
+}
+
 // Close mobile menu when clicking outside (updated for side menu)
 document.addEventListener('click', function(event) {
     const mobileMenu = document.getElementById('mobileMenu');
     const sideMenu = document.getElementById('mobileSideMenu');
+    const desktopMenu = document.getElementById('desktopSlidingMenu');
     const mobileMenuButton = event.target.closest('button[onclick="toggleMobileMenu()"]');
     const sideMenuButton = event.target.closest('button[onclick="toggleSideMobileMenu()"]');
+    const desktopMenuButton = event.target.closest('button[onclick="toggleDesktopMenu()"]');
     
     // Handle old mobile menu if exists
     if (mobileMenu && !mobileMenuButton && !mobileMenu.contains(event.target)) {
@@ -96,6 +137,14 @@ document.addEventListener('click', function(event) {
         if (event.target === overlay) {
             closeSideMobileMenu();
         }
+    }
+    
+    // Handle desktop sliding menu
+    if (desktopMenu && !desktopMenuButton && !desktopMenu.contains(event.target) && !desktopMenu.classList.contains('hidden')) {
+        // Close desktop menu when clicking outside
+        desktopMenu.classList.add('hidden');
+        desktopMenu.style.maxHeight = '';
+        desktopMenu.style.transition = '';
     }
 });
 
@@ -519,4 +568,128 @@ document.addEventListener('DOMContentLoaded', function() {
             // stopVideo();
         }
     });
+});
+
+// Load More Functionality
+document.addEventListener('DOMContentLoaded', function() {
+    const loadMoreBtn = document.getElementById('loadMoreBtn');
+    const additionalNews = document.getElementById('additionalNews');
+    
+    if (loadMoreBtn && additionalNews) {
+        console.log('Setting up Load More functionality...');
+        
+        loadMoreBtn.addEventListener('click', function(e) {
+            e.preventDefault();
+            console.log('Load More button clicked!');
+            
+            // Show the hidden additional news
+            additionalNews.classList.remove('hidden');
+            additionalNews.classList.add('block');
+            additionalNews.style.display = 'block';
+            
+            // Hide the load more button
+            loadMoreBtn.style.display = 'none';
+            
+            // Optional: Add smooth scroll to new content
+            setTimeout(() => {
+                additionalNews.scrollIntoView({ 
+                    behavior: 'smooth', 
+                    block: 'start' 
+                });
+            }, 100);
+            
+            console.log('Additional news loaded and displayed');
+        });
+        
+        console.log('Load More functionality initialized successfully');
+    } else {
+        console.log('Load More button or additional news section not found');
+        
+        // Fallback: Try to find any Load More button
+        const allLoadMoreBtns = document.querySelectorAll('button[id*="loadMore"], button[class*="load-more"], button:contains("আরও পড়ুন"), button:contains("আরো পড়ুন")');
+        console.log('Found alternative load more buttons:', allLoadMoreBtns.length);
+        
+        allLoadMoreBtns.forEach((btn, index) => {
+            console.log(`Button ${index + 1}:`, btn.textContent.trim());
+            btn.addEventListener('click', function(e) {
+                e.preventDefault();
+                console.log('Alternative Load More button clicked!');
+                
+                // Try to find hidden content near this button
+                const hiddenContent = btn.parentElement.parentElement.querySelector('[class*="hidden"]') ||
+                                    btn.parentElement.nextElementSibling ||
+                                    document.querySelector('#additionalNews, #additionalContent, [id*="additional"]');
+                
+                if (hiddenContent) {
+                    hiddenContent.classList.remove('hidden');
+                    hiddenContent.style.display = 'block';
+                    btn.style.display = 'none';
+                    console.log('Alternative content loaded');
+                } else {
+                    console.log('No hidden content found for this button');
+                    alert('আরও কন্টেন্ট লোড করা হচ্ছে...');
+                }
+            });
+        });
+    }
+});
+
+// General Load More functionality for any page
+function loadMoreContent() {
+    console.log('loadMoreContent function called');
+    
+    const loadMoreBtn = document.getElementById('loadMoreBtn');
+    const additionalContent = document.getElementById('additionalNews') || 
+                             document.getElementById('additionalContent') ||
+                             document.querySelector('[id*="additional"]');
+    
+    if (additionalContent) {
+        console.log('Found additional content, showing it...');
+        
+        // Show the hidden additional content
+        additionalContent.classList.remove('hidden');
+        additionalContent.style.display = 'block';
+        
+        // Hide the load more button
+        if (loadMoreBtn) {
+            loadMoreBtn.style.display = 'none';
+        }
+        
+        // Smooth scroll to new content
+        setTimeout(() => {
+            additionalContent.scrollIntoView({ 
+                behavior: 'smooth', 
+                block: 'start' 
+            });
+        }, 200);
+        
+        console.log('Content loaded successfully');
+        return true;
+    } else {
+        console.log('No additional content found to load');
+        alert('আরও কন্টেন্ট খুঁজে পাওয়া যায়নি।');
+        return false;
+    }
+}
+
+// Additional onclick handler for buttons
+window.handleLoadMore = function() {
+    console.log('handleLoadMore called');
+    return loadMoreContent();
+};
+
+// Test function to check if everything is working
+window.testLoadMore = function() {
+    console.log('=== Load More Test ===');
+    console.log('loadMoreBtn element:', document.getElementById('loadMoreBtn'));
+    console.log('additionalNews element:', document.getElementById('additionalNews'));
+    console.log('loadMoreContent function:', typeof loadMoreContent);
+    console.log('=== End Test ===');
+};
+
+// Call test on page load
+document.addEventListener('DOMContentLoaded', function() {
+    setTimeout(() => {
+        window.testLoadMore();
+    }, 1000);
 });

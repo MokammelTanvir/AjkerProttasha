@@ -38,6 +38,54 @@ a:hover {
   color: #1d4ed8;
 }
 
+/* Utility Classes */
+.hidden {
+  display: none !important;
+}
+
+.block {
+  display: block !important;
+}
+
+/* Load More Button Styles */
+#loadMoreBtn {
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+#loadMoreBtn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+#loadMoreBtn:active {
+  transform: translateY(0);
+}
+
+/* Additional Content Animation */
+#additionalNews, #additionalContent {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.5s ease;
+}
+
+#additionalNews.block, #additionalContent.block {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+#additionalNews:not(.hidden), #additionalContent:not(.hidden) {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Container */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
 /* Header Styles */
 .header-shadow {
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
