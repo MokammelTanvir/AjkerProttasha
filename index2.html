@@ -16,24 +16,24 @@
 </head>
 <body class="bg-gray-50 min-h-screen">
     <!-- Header -->
-    <header>
-        <!-- Top Section - White Background (Hidden on Mobile) -->
-        <div class="hidden md:block bg-white border-b border-gray-200 header-shadow">
-            <div class="container mx-auto px-4 py-3">
+    <header class="relative z-50">
+        <!-- Top Section - White Background (Always Visible for Testing) -->
+        <div class="block bg-white border-b border-gray-200 header-shadow" style="display: block !important;">
+            <div class="container mx-auto px-4 py-3 max-w-7xl">
                 <div class="flex items-center justify-between">
                     <!-- Left - Date -->
-                    <div class="text-sm text-gray-600 header-date">
+                    <div class="text-sm text-gray-600 header-date flex-shrink-0 ml-4">
                         <div class="font-medium">বুধবার, ০৮ আগস্ট ২০২৫</div>
-                        <div class="text-xs">২৪ শ্রাবণ ১৪৩২ বঙ্গাব্দ</div>
+                        <div class="text-xs">২ৄ শ্রাবণ ১৪৩২ বঙ্গাব্দ</div>
                     </div>
                     
                     <!-- Center - Logo -->
-                    <div class="flex-1 flex justify-center">
+                    <div class="flex-1 flex justify-center px-4">
                         <img src="assets/img/logo.png" alt="আজকের প্রত্যাশা" class="h-16 w-auto header-logo">
                     </div>
                     
                     <!-- Right - Social Media Icons -->
-                    <div class="flex items-center space-x-3 social-icons">
+                    <div class="flex items-center space-x-3 social-icons flex-shrink-0 mr-4">
                         <!-- Facebook -->
                         <a href="#" class="w-10 h-10 bg-blue-600 rounded-full flex items-center justify-center hover:bg-blue-700 transition-colors">
                             <svg class="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 24 24">
@@ -76,10 +76,10 @@
         </div>
         
         <!-- Navigation Bar - Blue Background -->
-        <nav class="bg-blue-700 text-white">
-            <div class="container mx-auto px-4">
+        <nav class="bg-blue-700 text-white relative z-40">
+            <div class="container mx-auto px-4 max-w-7xl">
                 <!-- Desktop Layout -->
-                <div class="hidden md:flex items-center justify-between">
+                <div class="flex items-center justify-between py-2" style="display: flex !important;">
                     <!-- Left - Home Icon -->
                     <div class="flex items-center">
                         <a href="#" class="p-3 hover:bg-blue-600 transition-colors text-white hover:text-white">
@@ -533,6 +533,134 @@
                                     <h3 class="font-semibold text-gray-800 mb-2 video-title">খেলাধুলার সাম্প্রতিক খবর এবং আপডেট</h3>
                                 </div>
                             </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Banner Section -->
+    <section class="bg-white py-0">
+        <div class="container mx-auto px-4">
+            <div class="relative rounded-lg overflow-hidden shadow-lg" 
+                 style="background-image: url('assets/img/bgbanner1.jpg'); background-size: cover; background-position: center; background-repeat: no-repeat; min-height: 200px;">
+                <!-- Dark Overlay for Better Text Readability -->
+                <div class="absolute inset-0 bg-black bg-opacity-40"></div>
+                
+                <!-- Content Container -->
+                <div class="relative z-10 flex items-center justify-center h-full py-12 px-6">
+                    <div class="text-center">
+                        <!-- First Headline -->
+                        <h1 class="text-white text-3xl md:text-4xl lg:text-5xl font-bold mb-4 leading-tight">
+                            হুমায়ূন আহমেদের
+                        </h1>
+                        <!-- Second Headline -->
+                        <h2 class="text-yellow-300 text-2xl md:text-3xl lg:text-4xl font-bold leading-tight">
+                            ১৩তম মৃত্যুবার্ষিকী পালিত
+                        </h2>
+                    </div>
+                </div>
+                
+                <!-- Decorative Elements -->
+                <div class="absolute top-0 left-0 w-full h-full pointer-events-none z-10">
+                    <div class="absolute top-4 left-4 w-8 h-8 border-l-2 border-t-2 border-yellow-300 opacity-50"></div>
+                    <div class="absolute top-4 right-4 w-8 h-8 border-r-2 border-t-2 border-yellow-300 opacity-50"></div>
+                    <div class="absolute bottom-4 left-4 w-8 h-8 border-l-2 border-b-2 border-yellow-300 opacity-50"></div>
+                    <div class="absolute bottom-4 right-4 w-8 h-8 border-r-2 border-b-2 border-yellow-300 opacity-50"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- News Box Section -->
+    <section class="bg-white py-8">
+        <div class="container mx-auto px-4">
+            <!-- News Box Container with Blue Border -->
+            <div class="border-16 border-blue-600 rounded-lg p-6 bg-white shadow-lg" style="border-width: 16px;">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                    
+                    <!-- Left Side - Main News (50%) -->
+                    <div class="space-y-4">
+                        <!-- Main News Image -->
+                        <div class="relative">
+                            <img src="assets/img/news2.png" alt="লাল কার্ড দেখার পরও অপরাধ!" class="w-full h-64 object-cover rounded-lg">
+                        </div>
+                        
+                        <!-- Main News Content -->
+                        <div class="space-y-3">
+                            <h2 class="text-xl md:text-2xl font-bold text-gray-800 leading-tight">
+                                লাল কার্ড দেখার পরও অপরাধ! তিন ম্যাচ নিষিদ্ধের শাস্তিয় মেসিদের কোচ
+                            </h2>
+                            <p class="text-gray-600 text-sm md:text-base leading-relaxed">
+                                চোটের আক্রান্ত লিওনেল মেসির হাত নিয়ে বিগত কোয়ার্টার ফাইনালে মেক্সিকান রক্ষক সেভেন কে ৬-৬ 
+                                গোলে হারিয়েছে ইন্টার মিয়ামি। বাকিভাবেন সময় বুন্দেসলিগার ঘরের মাঠ চোখ পেতিয়ামে নিয়ামক হয়ে বুট 
+                                পোলিং করেন দুটো স্যুভেনির...
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Right Side - 4 News Cards (50%) -->
+                    <div class="grid grid-cols-2 gap-4">
+                        
+                        <!-- News Card 1 -->
+                        <div class="space-y-2">
+                            <div class="relative">
+                                <img src="assets/img/news3.png" alt="ক্রি হয়েছে মেসির, কোয়ার্টার ফাইনালে" class="w-full h-24 object-cover rounded">
+                                <div class="absolute top-2 left-2">
+                                    <span class="bg-red-600 text-white px-2 py-1 text-xs font-semibold rounded">
+                                        নিয়মিত কার্ড
+                                    </span>
+                                </div>
+                            </div>
+                            <h3 class="text-sm font-semibold text-gray-800 leading-tight">
+                                ক্রি হয়েছে মেসির, কোয়ার্টার ফাইনালে কেন খেলেলেন না
+                            </h3>
+                        </div>
+
+                        <!-- News Card 2 -->
+                        <div class="space-y-2">
+                            <div class="relative">
+                                <img src="assets/img/news4.png" alt="ব্যাট হতে বাংলার পর প্রধানবার" class="w-full h-24 object-cover rounded">
+                                <div class="absolute top-2 left-2">
+                                    <span class="bg-red-600 text-white px-2 py-1 text-xs font-semibold rounded">
+                                        সিঙ্গেল ১০১৫
+                                    </span>
+                                </div>
+                            </div>
+                            <h3 class="text-sm font-semibold text-gray-800 leading-tight">
+                                ব্যাট হতে বাংলার পর প্রধানবার উইকেটের দেশা পেলেন সাকিব
+                            </h3>
+                        </div>
+
+                        <!-- News Card 3 -->
+                        <div class="space-y-2">
+                            <div class="relative">
+                                <img src="assets/img/news5.png" alt="ক্রি হয়েছে মেসির, কোয়ার্টার ফাইনালে" class="w-full h-24 object-cover rounded">
+                                <div class="absolute top-2 left-2">
+                                    <span class="bg-red-600 text-white px-2 py-1 text-xs font-semibold rounded">
+                                        নিয়মিত কার্ড
+                                    </span>
+                                </div>
+                            </div>
+                            <h3 class="text-sm font-semibold text-gray-800 leading-tight">
+                                ক্রি হয়েছে মেসির, কোয়ার্টার ফাইনালে কেন খেলেলেন না
+                            </h3>
+                        </div>
+
+                        <!-- News Card 4 -->
+                        <div class="space-y-2">
+                            <div class="relative">
+                                <img src="assets/img/news6.png" alt="ব্যাট হতে বাংলার পর প্রধানবার" class="w-full h-24 object-cover rounded">
+                                <div class="absolute top-2 left-2">
+                                    <span class="bg-red-600 text-white px-2 py-1 text-xs font-semibold rounded">
+                                        সিঙ্গেল ১০১৫
+                                    </span>
+                                </div>
+                            </div>
+                            <h3 class="text-sm font-semibold text-gray-800 leading-tight">
+                                ব্যাট হতে বাংলার পর প্রধানবার উইকেটের দেশা পেলেন সাকিব
+                            </h3>
                         </div>
                     </div>
                 </div>
