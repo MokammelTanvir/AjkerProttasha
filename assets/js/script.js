@@ -3,6 +3,10 @@
 document.addEventListener('DOMContentLoaded', function() {
     console.log('আজকের প্রত্যাশা - Ready!');
     
+    // Handle Responsive Header Display
+    handleResponsiveHeader();
+    window.addEventListener('resize', handleResponsiveHeader);
+    
     // Debug: Check if Load More elements exist
     const loadMoreBtn = document.getElementById('loadMoreBtn');
     const additionalNews = document.getElementById('additionalNews');
@@ -14,6 +18,38 @@ document.addEventListener('DOMContentLoaded', function() {
         console.log('Load More Button text:', loadMoreBtn.textContent.trim());
     }
 });
+
+// Handle Responsive Header Display
+function handleResponsiveHeader() {
+    const desktopHeader = document.getElementById('desktopHeader');
+    const desktopNavbar = document.getElementById('desktopNavbar');
+    const mobileNavbar = document.getElementById('mobileNavbar');
+    const screenWidth = window.innerWidth;
+    
+    if (screenWidth >= 768) {
+        // Desktop: Show header and desktop navbar, hide mobile navbar
+        if (desktopHeader) {
+            desktopHeader.style.display = 'block';
+        }
+        if (desktopNavbar) {
+            desktopNavbar.style.display = 'flex';
+        }
+        if (mobileNavbar) {
+            mobileNavbar.style.display = 'none';
+        }
+    } else {
+        // Mobile: Hide header and desktop navbar, show mobile navbar
+        if (desktopHeader) {
+            desktopHeader.style.display = 'none';
+        }
+        if (desktopNavbar) {
+            desktopNavbar.style.display = 'none';
+        }
+        if (mobileNavbar) {
+            mobileNavbar.style.display = 'flex';
+        }
+    }
+}
 
 // Toggle Mobile Menu (old function - kept for compatibility)
 function toggleMobileMenu() {
