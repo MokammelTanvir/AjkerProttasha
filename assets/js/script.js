@@ -26,28 +26,42 @@ function handleResponsiveHeader() {
     const mobileNavbar = document.getElementById('mobileNavbar');
     const screenWidth = window.innerWidth;
     
+    console.log('Screen width:', screenWidth); // Debug log
+    
     if (screenWidth >= 768) {
-        // Desktop: Show header and desktop navbar, hide mobile navbar
+        // Desktop: Show full header and navbar
         if (desktopHeader) {
             desktopHeader.style.display = 'block';
+            desktopHeader.style.visibility = 'visible';
+            desktopHeader.style.opacity = '1';
         }
         if (desktopNavbar) {
             desktopNavbar.style.display = 'flex';
+            desktopNavbar.style.visibility = 'visible';
+            desktopNavbar.style.opacity = '1';
         }
         if (mobileNavbar) {
             mobileNavbar.style.display = 'none';
         }
+        console.log('Desktop mode: Full header + navbar visible');
     } else {
-        // Mobile: Hide header and desktop navbar, show mobile navbar
+        // Mobile: Hide everything except mobile navbar
         if (desktopHeader) {
             desktopHeader.style.display = 'none';
+            desktopHeader.style.visibility = 'hidden';
+            desktopHeader.style.opacity = '0';
         }
         if (desktopNavbar) {
             desktopNavbar.style.display = 'none';
+            desktopNavbar.style.visibility = 'hidden';
+            desktopNavbar.style.opacity = '0';
         }
         if (mobileNavbar) {
             mobileNavbar.style.display = 'flex';
+            mobileNavbar.style.visibility = 'visible';
+            mobileNavbar.style.opacity = '1';
         }
+        console.log('Mobile mode: Only blue navbar visible (home + logo + hamburger)');
     }
 }
 
@@ -236,13 +250,24 @@ const totalCards = document.querySelectorAll('#videoSlider > div').length;
 // Dynamic card width and cards per view based on screen size
 function getSliderSettings() {
     const screenWidth = window.innerWidth;
+    const container = document.querySelector('.container.mx-auto');
+    const containerWidth = container ? container.offsetWidth : screenWidth - 32; // Account for padding
+    
     if (screenWidth <= 480) {
-        // Mobile: full width minus arrow space (70px each side)
-        return { cardWidth: screenWidth - 140, cardsPerView: 1 };
+        // Mobile: exactly one full card width minus arrow space (60px each side)
+        return { cardWidth: screenWidth - 120, cardsPerView: 1 };
     } else if (screenWidth <= 768) {
-        return { cardWidth: 300, cardsPerView: Math.floor(screenWidth / 320) };
+        // Tablet: 2-3 cards per row
+        const cardWidth = Math.floor((containerWidth - 48) / 2); // 2 cards with 16px gap each
+        return { cardWidth: cardWidth, cardsPerView: 2 };
+    } else if (screenWidth <= 1024) {
+        // Small desktop: 3 cards per row
+        const cardWidth = Math.floor((containerWidth - 64) / 3); // 3 cards with 16px gap each
+        return { cardWidth: cardWidth, cardsPerView: 3 };
     } else {
-        return { cardWidth: 320, cardsPerView: Math.floor(screenWidth / 340) };
+        // Large desktop: 4 cards per row
+        const cardWidth = Math.floor((containerWidth - 80) / 4); // 4 cards with 16px gap each
+        return { cardWidth: cardWidth, cardsPerView: 4 };
     }
 }
 
@@ -729,3 +754,230 @@ document.addEventListener('DOMContentLoaded', function() {
         window.testLoadMore();
     }, 1000);
 });
+
+// Video Modal Functionality
+let currentModalVideoId = null;
+
+// Function to open video modal
+function openVideoModal(videoId, title, description) {
+    const modal = document.getElementById('videoModal');
+    const modalPlayer = document.getElementById('modalVideoPlayer');
+    const modalTitle = document.getElementById('modalVideoTitle');
+    const modalDescription = document.getElementById('modalVideoDescription');
+    
+    if (modal && modalPlayer) {
+        // Set video details
+        currentModalVideoId = videoId;
+        modalTitle.textContent = title || 'ভিডিও শিরোনাম';
+        modalDescription.textContent = description || 'ভিডিও বিবরণ';
+        
+        // Set up YouTube embed URL with autoplay
+        const embedUrl = `https://www.youtube.com/embed/${videoId}?autoplay=1&rel=0&showinfo=0&modestbranding=1&enablejsapi=1`;
+        modalPlayer.src = embedUrl;
+        
+        // Show modal
+        modal.classList.remove('hidden');
+        modal.classList.add('active');
+        
+        // Prevent body scrolling
+        document.body.style.overflow = 'hidden';
+        
+        // Add escape key listener
+        document.addEventListener('keydown', handleModalEscape);
+        
+        console.log('Video modal opened:', videoId, title);
+    }
+}
+
+// Function to close video modal
+function closeVideoModal() {
+    const modal = document.getElementById('videoModal');
+    const modalPlayer = document.getElementById('modalVideoPlayer');
+    
+    if (modal) {
+        // Hide modal
+        modal.classList.remove('active');
+        modal.classList.add('hidden');
+        
+        // Stop video by clearing src
+        if (modalPlayer) {
+            modalPlayer.src = '';
+        }
+        
+        // Restore body scrolling
+        document.body.style.overflow = '';
+        
+        // Remove escape key listener
+        document.removeEventListener('keydown', handleModalEscape);
+        
+        currentModalVideoId = null;
+        console.log('Video modal closed');
+    }
+}
+
+// Handle escape key to close modal
+function handleModalEscape(event) {
+    if (event.key === 'Escape') {
+        closeVideoModal();
+    }
+}
+
+// Add event listeners to video slider play buttons
+document.addEventListener('DOMContentLoaded', function() {
+    // Add click events to all play buttons in the video slider
+    const playButtons = document.querySelectorAll('.play-button');
+    
+    playButtons.forEach(function(button) {
+        button.addEventListener('click', function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            
+            // Get video data from the parent card
+            const videoCard = this.closest('.video-card-wrapper');
+            if (videoCard) {
+                const titleElement = videoCard.querySelector('.video-title');
+                const title = titleElement ? titleElement.textContent.trim() : 'ভিডিও শিরোনাম';
+                
+                // For now, using sample video IDs. In real implementation, you'd get these from data attributes
+                const sampleVideoIds = ['dQw4w9WgXcQ', '9bZkp7q19f0', 'kJQP7kiw5Fk', 'L_jWHffIx5E', 'fJ9rUzIMcZQ', 'Zi_XLOBDo_Y'];
+                const videoIndex = Array.from(document.querySelectorAll('.video-card-wrapper')).indexOf(videoCard);
+                const videoId = sampleVideoIds[videoIndex % sampleVideoIds.length];
+                
+                const description = `${title} - বিস্তারিত বিবরণ এখানে থাকবে। এটি একটি নমুনা বিবরণ যা প্রকৃত ভিডিওর জন্য আপডেট করা হবে।`;
+                
+                openVideoModal(videoId, title, description);
+            }
+        });
+    });
+    
+    // Add click event to modal overlay to close modal
+    const modalOverlay = document.querySelector('.video-modal-overlay');
+    if (modalOverlay) {
+        modalOverlay.addEventListener('click', closeVideoModal);
+    }
+});
+
+// Binodon Section Slider Functionality
+document.addEventListener('DOMContentLoaded', function() {
+    const binodonSlider = document.querySelector('.binodon-slider');
+    const binodonPrevBtn = document.getElementById('binodonPrevBtn');
+    const binodonNextBtn = document.getElementById('binodonNextBtn');
+    const binodonSlides = document.querySelectorAll('.binodon-slide');
+    
+    if (binodonSlider && binodonPrevBtn && binodonNextBtn && binodonSlides.length > 0) {
+        let currentSlide = 0;
+        let currentMobileCard = 0;
+        let isMobile = window.innerWidth <= 768;
+        
+        // Get all cards for mobile navigation
+        function getAllCards() {
+            const allCards = [];
+            binodonSlides.forEach(slide => {
+                const cards = slide.querySelectorAll('.bg-white');
+                cards.forEach(card => allCards.push(card));
+            });
+            return allCards;
+        }
+        
+        // Initialize slider
+        updateSliderPosition();
+        
+        // Previous button click
+        binodonPrevBtn.addEventListener('click', function() {
+            if (isMobile) {
+                const allCards = getAllCards();
+                currentMobileCard = currentMobileCard === 0 ? allCards.length - 1 : currentMobileCard - 1;
+            } else {
+                currentSlide = currentSlide === 0 ? binodonSlides.length - 1 : currentSlide - 1;
+            }
+            updateSliderPosition();
+        });
+        
+        // Next button click
+        binodonNextBtn.addEventListener('click', function() {
+            if (isMobile) {
+                const allCards = getAllCards();
+                currentMobileCard = currentMobileCard === allCards.length - 1 ? 0 : currentMobileCard + 1;
+            } else {
+                currentSlide = currentSlide === binodonSlides.length - 1 ? 0 : currentSlide + 1;
+            }
+            updateSliderPosition();
+        });
+        
+        // Update slider position
+        function updateSliderPosition() {
+            if (isMobile) {
+                // Mobile: Show one card at a time
+                const allCards = getAllCards();
+                
+                // Hide all slides first
+                binodonSlides.forEach(slide => {
+                    slide.style.display = 'none';
+                });
+                
+                // Show only the slide containing current card
+                allCards.forEach((card, index) => {
+                    const parentSlide = card.closest('.binodon-slide');
+                    const cards = parentSlide.querySelectorAll('.bg-white');
+                    
+                    if (index === currentMobileCard) {
+                        parentSlide.style.display = 'block';
+                        cards.forEach(c => c.style.display = 'none');
+                        card.style.display = 'block';
+                    }
+                });
+                
+                binodonSlider.style.transform = 'translateX(0%)';
+            } else {
+                // Desktop: original behavior - show slides with 6 cards each
+                binodonSlides.forEach((slide, index) => {
+                    if (index === currentSlide) {
+                        slide.style.display = 'block';
+                    } else {
+                        slide.style.display = 'none';
+                    }
+                    
+                    // Show all cards in each slide for desktop
+                    const cards = slide.querySelectorAll('.bg-white');
+                    cards.forEach(card => {
+                        card.style.display = 'block';
+                    });
+                });
+                
+                const translateX = -currentSlide * 100;
+                binodonSlider.style.transform = `translateX(${translateX}%)`;
+            }
+        }
+        
+        // Handle responsive behavior
+        function handleBinodonResponsive() {
+            const screenWidth = window.innerWidth;
+            isMobile = screenWidth <= 768;
+            
+            // Reset counters when switching between mobile/desktop
+            currentSlide = 0;
+            currentMobileCard = 0;
+            
+            // Always show navigation buttons
+            binodonPrevBtn.style.display = 'block';
+            binodonNextBtn.style.display = 'block';
+            
+            updateSliderPosition();
+        }
+        
+        // Initialize responsive behavior
+        handleBinodonResponsive();
+        
+        // Listen for window resize
+        window.addEventListener('resize', handleBinodonResponsive);
+        
+        const allCards = getAllCards();
+        console.log('Binodon slider initialized - Desktop slides:', binodonSlides.length, 'Mobile cards:', allCards.length);
+    } else {
+        console.log('Binodon slider elements not found');
+    }
+});
+
+// Global function to make it accessible from HTML onclick
+window.openVideoModal = openVideoModal;
+window.closeVideoModal = closeVideoModal;
