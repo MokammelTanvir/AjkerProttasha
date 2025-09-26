@@ -16,24 +16,24 @@
 </head>
 <body class="bg-gray-50 min-h-screen">
     <!-- Header -->
-    <header>
-        <!-- Top Section - White Background (Hidden on Mobile) -->
-        <div class="hidden md:block bg-white border-b border-gray-200 header-shadow">
-            <div class="container mx-auto px-4 py-3">
+    <header class="relative z-50">
+        <!-- Top Section - White Background (Desktop Only) -->
+        <div class="bg-white border-b border-gray-200 header-shadow" id="desktopHeader">
+            <div class="container mx-auto px-4 py-3 max-w-7xl">
                 <div class="flex items-center justify-between">
                     <!-- Left - Date -->
-                    <div class="text-sm text-gray-600 header-date">
+                    <div class="text-sm text-gray-600 header-date flex-shrink-0 ml-4">
                         <div class="font-medium">বুধবার, ০৮ আগস্ট ২০২৫</div>
                         <div class="text-xs">২৪ শ্রাবণ ১৪৩২ বঙ্গাব্দ</div>
                     </div>
                     
                     <!-- Center - Logo -->
-                    <div class="flex-1 flex justify-center">
+                    <div class="flex-1 flex justify-center px-4">
                         <img src="assets/img/logo.png" alt="আজকের প্রত্যাশা" class="h-16 w-auto header-logo">
                     </div>
                     
                     <!-- Right - Social Media Icons -->
-                    <div class="flex items-center space-x-3 social-icons">
+                    <div class="flex items-center space-x-3 social-icons flex-shrink-0 mr-4">
                         <!-- Facebook -->
                         <a href="#" class="w-10 h-10 bg-blue-600 rounded-full flex items-center justify-center hover:bg-blue-700 transition-colors">
                             <svg class="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 24 24">
@@ -76,10 +76,10 @@
         </div>
         
         <!-- Navigation Bar - Blue Background -->
-        <nav class="bg-blue-700 text-white">
-            <div class="container mx-auto px-4">
+        <nav class="bg-blue-700 text-white relative z-40">
+            <div class="container mx-auto px-4 max-w-7xl">
                 <!-- Desktop Layout -->
-                <div class="hidden md:flex items-center justify-between">
+                <div id="desktopNavbar" class="flex items-center justify-between py-2">
                     <!-- Left - Home Icon -->
                     <div class="flex items-center">
                         <a href="#" class="p-3 hover:bg-blue-600 transition-colors text-white hover:text-white">
@@ -121,10 +121,10 @@
                 </div>
 
                 <!-- Mobile Layout -->
-                <div class="md:hidden flex items-center justify-between py-2">
+                <div id="mobileNavbar" class="mobile-nav-container" style="display: none;">
                     <!-- Left - Home Icon -->
-                    <div class="flex items-center">
-                        <a href="#" class="p-3 hover:bg-blue-600 transition-colors text-white hover:text-white">
+                    <div class="mobile-nav-left">
+                        <a href="#" class="mobile-home-btn">
                             <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
                                 <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/>
                             </svg>
@@ -132,13 +132,13 @@
                     </div>
                     
                     <!-- Center - Logo -->
-                    <div class="flex-1 flex justify-center">
-                        <img src="assets/img/logo.png" alt="আজকের প্রত্যাশা" class="h-10 w-auto">
+                    <div class="mobile-nav-center">
+                        <img src="assets/img/logo.png" alt="আজকের প্রত্যাশা" class="mobile-logo">
                     </div>
                     
                     <!-- Right - Hamburger Menu -->
-                    <div class="flex items-center">
-                        <button class="p-3 hover:bg-blue-600 transition-colors" onclick="toggleSideMobileMenu()">
+                    <div class="mobile-nav-right">
+                        <button class="mobile-hamburger-btn" onclick="toggleSideMobileMenu()">
                             <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
                             </svg>
@@ -234,31 +234,31 @@
             </div>
             
             <nav class="mt-4">
-                <a href="#" class="flex items-center px-4 py-3 text-gray-700 hover:bg-blue-50 hover:text-blue-700 transition-colors border-l-4 border-transparent hover:border-blue-700">
+                <a href="#" class="flex items-center px-4 py-3 text-gray-700 hover:bg-blue-50 hover:text-blue-700 transition-colors duration-500 ease-out border-l-4 border-transparent hover:border-blue-700">
                     <svg class="w-5 h-5 mr-3" fill="currentColor" viewBox="0 0 24 24">
                         <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/>
                     </svg>
                     হোম
                 </a>
-                <a href="category-news.html" class="flex items-center px-4 py-3 text-gray-700 hover:bg-blue-50 hover:text-blue-700 transition-colors border-l-4 border-transparent hover:border-blue-700">
+                <a href="category-news.html" class="flex items-center px-4 py-3 text-gray-700 hover:bg-blue-50 hover:text-blue-700 transition-colors duration-500 ease-out border-l-4 border-transparent hover:border-blue-700">
                     <svg class="w-5 h-5 mr-3" fill="currentColor" viewBox="0 0 24 24">
                         <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
                     </svg>
                     সর্বশেষ
                 </a>
-                <a href="category-news.html" class="flex items-center px-4 py-3 text-gray-700 hover:bg-blue-50 hover:text-blue-700 transition-colors border-l-4 border-transparent hover:border-blue-700">
+                <a href="category-news.html" class="flex items-center px-4 py-3 text-gray-700 hover:bg-blue-50 hover:text-blue-700 transition-colors duration-500 ease-out border-l-4 border-transparent hover:border-blue-700">
                     <svg class="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9.5a2 2 0 00-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8z"/>
                     </svg>
                     জাতীয়
                 </a>
-                <a href="category-news.html" class="flex items-center px-4 py-3 text-gray-700 hover:bg-blue-50 hover:text-blue-700 transition-colors border-l-4 border-transparent hover:border-blue-700">
+                <a href="category-news.html" class="flex items-center px-4 py-3 text-gray-700 hover:bg-blue-50 hover:text-blue-700 transition-colors duration-500 ease-out border-l-4 border-transparent hover:border-blue-700">
                     <svg class="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>
                     </svg>
                     রাজনীতি
                 </a>
-                <a href="category-news.html" class="flex items-center px-4 py-3 text-gray-700 hover:bg-blue-50 hover:text-blue-700 transition-colors border-l-4 border-transparent hover:border-blue-700">
+                <a href="category-news.html" class="flex items-center px-4 py-3 text-gray-700 hover:bg-blue-50 hover:text-blue-700 transition-colors duration-500 ease-out border-l-4 border-transparent hover:border-blue-700">
                     <svg class="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064"/>
                     </svg>
@@ -598,10 +598,10 @@
                     <div class="bg-white rounded-lg overflow-hidden">
                         <!-- Tab Headers -->
                         <div class="flex">
-                            <button id="latestTab" class="tab-button flex-1 py-3 px-4 text-sm font-semibold active transition-colors duration-300">
+                            <button id="latestTab" class="tab-button flex-1 py-3 px-4 text-sm font-semibold bg-blue-600 text-white transition-colors duration-500 ease-out">
                                 সর্বশেষ
                             </button>
-                            <button id="popularTab" class="tab-button flex-1 py-3 px-4 text-sm font-semibold transition-colors duration-300">
+                            <button id="popularTab" class="tab-button flex-1 py-3 px-4 text-sm font-semibold bg-gray-300 text-gray-700 transition-colors duration-500 ease-out">
                                 সর্বাধিক পঠিত
                             </button>
                         </div>
@@ -610,7 +610,7 @@
                         <div id="latestContent" class="tab-content">
                             <div class="divide-y divide-gray-200">
                                 <!-- Latest News Item 1 -->
-                                <div class="p-4 hover:bg-gray-50 transition-colors cursor-pointer">
+                                <div class="p-4 cursor-pointer border-t-2 border-blue-600 hover:border-red-600 transition-all duration-700 ease-out">
                                     <div class="flex items-center space-x-2 mb-2">
                                         <div class="w-2 h-2 bg-blue-600 rounded-full"></div>
                                         <span class="text-xs text-gray-500">সর্বশেষ</span>
@@ -620,7 +620,7 @@
                                     </h4>
                                 </div>
 
-                                <div class="p-4 hover:bg-gray-50 transition-colors cursor-pointer">
+                                <div class="p-4 cursor-pointer border-t-2 border-blue-600 hover:border-red-600 transition-all duration-700 ease-out">
                                     <div class="flex items-center space-x-2 mb-2">
                                         <div class="w-2 h-2 bg-green-600 rounded-full"></div>
                                         <span class="text-xs text-gray-500">রাজনীতি</span>
@@ -630,7 +630,7 @@
                                     </h4>
                                 </div>
 
-                                <div class="p-4 hover:bg-gray-50 transition-colors cursor-pointer">
+                                <div class="p-4 cursor-pointer border-t-2 border-blue-600 hover:border-red-600 transition-all duration-700 ease-out">
                                     <div class="flex items-center space-x-2 mb-2">
                                         <div class="w-2 h-2 bg-purple-600 rounded-full"></div>
                                         <span class="text-xs text-gray-500">শিক্ষা</span>
@@ -640,7 +640,7 @@
                                     </h4>
                                 </div>
 
-                                <div class="p-4 hover:bg-gray-50 transition-colors cursor-pointer">
+                                <div class="p-4 cursor-pointer border-t-2 border-blue-600 hover:border-red-600 transition-all duration-700 ease-out">
                                     <div class="flex items-center space-x-2 mb-2">
                                         <div class="w-2 h-2 bg-red-600 rounded-full"></div>
                                         <span class="text-xs text-gray-500">স্বাস্থ্য</span>
@@ -650,7 +650,7 @@
                                     </h4>
                                 </div>
 
-                                <div class="p-4 hover:bg-gray-50 transition-colors cursor-pointer">
+                                <div class="p-4 cursor-pointer border-t-2 border-blue-600 hover:border-red-600 transition-all duration-700 ease-out">
                                     <div class="flex items-center space-x-2 mb-2">
                                         <div class="w-2 h-2 bg-orange-600 rounded-full"></div>
                                         <span class="text-xs text-gray-500">খেলাধুলা</span>
@@ -660,7 +660,7 @@
                                     </h4>
                                 </div>
 
-                                <div class="p-4 hover:bg-gray-50 transition-colors cursor-pointer">
+                                <div class="p-4 cursor-pointer border-t-2 border-blue-600 hover:border-red-600 transition-all duration-700 ease-out">
                                     <div class="flex items-center space-x-2 mb-2">
                                         <div class="w-2 h-2 bg-teal-600 rounded-full"></div>
                                         <span class="text-xs text-gray-500">প্রযুক্তি</span>
@@ -670,7 +670,7 @@
                                     </h4>
                                 </div>
 
-                                <div class="p-4 hover:bg-gray-50 transition-colors cursor-pointer">
+                                <div class="p-4 cursor-pointer border-t-2 border-blue-600 hover:border-red-600 transition-all duration-700 ease-out">
                                     <div class="flex items-center space-x-2 mb-2">
                                         <div class="w-2 h-2 bg-indigo-600 rounded-full"></div>
                                         <span class="text-xs text-gray-500">পরিবেশ</span>
@@ -686,7 +686,7 @@
                         <div id="popularContent" class="tab-content hidden">
                             <div class="divide-y divide-gray-200">
                                 <!-- Popular News Item 1 -->
-                                <div class="p-4 hover:bg-gray-50 transition-colors cursor-pointer">
+                                <div class="p-4 cursor-pointer border-t-2 border-blue-600 hover:border-red-600 transition-all duration-700 ease-out">
                                     <div class="flex items-center space-x-2 mb-2">
                                         <div class="w-2 h-2 bg-red-600 rounded-full"></div>
                                         <span class="text-xs text-gray-500">জনপ্রিয়</span>
@@ -696,7 +696,7 @@
                                     </h4>
                                 </div>
 
-                                <div class="p-4 hover:bg-gray-50 transition-colors cursor-pointer">
+                                <div class="p-4 cursor-pointer border-t-2 border-blue-600 hover:border-red-600 transition-all duration-700 ease-out">
                                     <div class="flex items-center space-x-2 mb-2">
                                         <div class="w-2 h-2 bg-blue-600 rounded-full"></div>
                                         <span class="text-xs text-gray-500">আলোচিত</span>
@@ -706,7 +706,7 @@
                                     </h4>
                                 </div>
 
-                                <div class="p-4 hover:bg-gray-50 transition-colors cursor-pointer">
+                                <div class="p-4 cursor-pointer border-t-2 border-blue-600 hover:border-red-600 transition-all duration-700 ease-out">
                                     <div class="flex items-center space-x-2 mb-2">
                                         <div class="w-2 h-2 bg-green-600 rounded-full"></div>
                                         <span class="text-xs text-gray-500">ভাইরাল</span>
@@ -716,7 +716,7 @@
                                     </h4>
                                 </div>
 
-                                <div class="p-4 hover:bg-gray-50 transition-colors cursor-pointer">
+                                <div class="p-4 cursor-pointer border-t-2 border-blue-600 hover:border-red-600 transition-all duration-700 ease-out">
                                     <div class="flex items-center space-x-2 mb-2">
                                         <div class="w-2 h-2 bg-purple-600 rounded-full"></div>
                                         <span class="text-xs text-gray-500">ট্রেন্ডিং</span>
@@ -726,7 +726,7 @@
                                     </h4>
                                 </div>
 
-                                <div class="p-4 hover:bg-gray-50 transition-colors cursor-pointer">
+                                <div class="p-4 cursor-pointer border-t-2 border-blue-600 hover:border-red-600 transition-all duration-700 ease-out">
                                     <div class="flex items-center space-x-2 mb-2">
                                         <div class="w-2 h-2 bg-orange-600 rounded-full"></div>
                                         <span class="text-xs text-gray-500">জনপ্রিয়</span>
@@ -736,7 +736,7 @@
                                     </h4>
                                 </div>
 
-                                <div class="p-4 hover:bg-gray-50 transition-colors cursor-pointer">
+                                <div class="p-4 cursor-pointer border-t-2 border-blue-600 hover:border-red-600 transition-all duration-700 ease-out">
                                     <div class="flex items-center space-x-2 mb-2">
                                         <div class="w-2 h-2 bg-teal-600 rounded-full"></div>
                                         <span class="text-xs text-gray-500">আলোচিত</span>
@@ -746,7 +746,7 @@
                                     </h4>
                                 </div>
 
-                                <div class="p-4 hover:bg-gray-50 transition-colors cursor-pointer">
+                                <div class="p-4 cursor-pointer border-t-2 border-blue-600 hover:border-red-600 transition-all duration-700 ease-out">
                                     <div class="flex items-center space-x-2 mb-2">
                                         <div class="w-2 h-2 bg-indigo-600 rounded-full"></div>
                                         <span class="text-xs text-gray-500">হট টপিক</span>
@@ -1031,5 +1031,37 @@
             </div>
         </div>
     </footer>
+    
+    <script>
+        // Tab functionality - matches index2.html behavior
+        document.addEventListener('DOMContentLoaded', function() {
+            const latestTab = document.getElementById('latestTab');
+            const popularTab = document.getElementById('popularTab');
+            const latestContent = document.getElementById('latestContent');
+            const popularContent = document.getElementById('popularContent');
+            
+            // Latest tab click handler
+            latestTab.addEventListener('click', function() {
+                // Update tab buttons
+                latestTab.className = 'tab-button flex-1 py-3 px-4 text-sm font-semibold bg-blue-600 text-white transition-colors duration-500 ease-out';
+                popularTab.className = 'tab-button flex-1 py-3 px-4 text-sm font-semibold bg-gray-300 text-gray-700 transition-colors duration-500 ease-out';
+                
+                // Update content visibility
+                latestContent.classList.remove('hidden');
+                popularContent.classList.add('hidden');
+            });
+            
+            // Popular tab click handler
+            popularTab.addEventListener('click', function() {
+                // Update tab buttons
+                popularTab.className = 'tab-button flex-1 py-3 px-4 text-sm font-semibold bg-blue-600 text-white transition-colors duration-500 ease-out';
+                latestTab.className = 'tab-button flex-1 py-3 px-4 text-sm font-semibold bg-gray-300 text-gray-700 transition-colors duration-500 ease-out';
+                
+                // Update content visibility
+                popularContent.classList.remove('hidden');
+                latestContent.classList.add('hidden');
+            });
+        });
+    </script>
 </body>
 </html>
