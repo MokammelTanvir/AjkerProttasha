@@ -3,6 +3,122 @@
 /* Bengali Font Support */
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Bengali:wght@400;600&display=swap');
 
+/* Custom Color Override for Header - Replace all blue colors with #070788 */
+.bg-blue-400,
+.bg-blue-500,
+.bg-blue-600,
+.bg-blue-700,
+.bg-blue-800 {
+  background-color: #070788 !important;
+}
+
+.hover\:bg-blue-400:hover,
+.hover\:bg-blue-500:hover,
+.hover\:bg-blue-600:hover,
+.hover\:bg-blue-700:hover,
+.hover\:bg-blue-800:hover {
+  background-color: #05055f !important;
+}
+
+.border-blue-600 {
+  border-color: #070788 !important;
+}
+
+.hover\:border-blue-700:hover {
+  border-color: #070788 !important;
+}
+
+.text-blue-100 {
+  color: #e0e7ff !important;
+}
+
+.text-blue-700,
+.hover\:text-blue-700:hover {
+  color: #070788 !important;
+}
+
+/* Comprehensive hover text blue color overrides */
+.hover\:text-blue-100:hover,
+.hover\:text-blue-200:hover,
+.hover\:text-blue-300:hover,
+.hover\:text-blue-400:hover,
+.hover\:text-blue-500:hover,
+.hover\:text-blue-600:hover,
+.hover\:text-blue-700:hover,
+.hover\:text-blue-800:hover,
+.hover\:text-blue-900:hover {
+  color: #070788 !important;
+}
+
+/* Class-based hover color override */
+a:hover[class*="hover:text-blue"],
+h1:hover[class*="hover:text-blue"],
+h2:hover[class*="hover:text-blue"],
+h3:hover[class*="hover:text-blue"],
+h4:hover[class*="hover:text-blue"],
+h5:hover[class*="hover:text-blue"],
+h6:hover[class*="hover:text-blue"] {
+  color: #070788 !important;
+}
+
+/* Border color overrides - comprehensive */
+.border-blue-100,
+.border-blue-200,
+.border-blue-300,
+.border-blue-400,
+.border-blue-500,
+.border-blue-600,
+.border-blue-700,
+.border-blue-800,
+.border-blue-900 {
+  border-color: #070788 !important;
+}
+
+/* Border hover color overrides */
+.hover\:border-blue-100:hover,
+.hover\:border-blue-200:hover,
+.hover\:border-blue-300:hover,
+.hover\:border-blue-400:hover,
+.hover\:border-blue-500:hover,
+.hover\:border-blue-600:hover,
+.hover\:border-blue-700:hover,
+.hover\:border-blue-800:hover,
+.hover\:border-blue-900:hover {
+  border-color: #070788 !important;
+}
+
+/* Background hover color overrides */
+.hover\:bg-blue-50:hover {
+  background-color: #f0f8ff !important;
+}
+
+.bg-blue-50,
+.hover\:bg-blue-50:hover {
+  background-color: #f0f8ff !important;
+}
+
+.focus\:ring-blue-300:focus {
+  --tw-ring-color: #070788 !important;
+}
+
+.focus\:ring-blue-500:focus {
+  --tw-ring-color: #070788 !important;
+}
+
+/* Mobile sidebar header background override */
+#mobileSideMenu .bg-blue-700 {
+  background-color: #070788 !important;
+}
+
+#mobileSideMenu .hover\:bg-blue-600:hover {
+  background-color: #05055f !important;
+}
+
+/* Desktop sliding menu background override */
+#desktopSlidingMenu.bg-blue-600 {
+  background-color: #070788 !important;
+}
+
 /* Base Styles */
 * {
   margin: 0;

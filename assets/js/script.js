@@ -456,7 +456,7 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 
-// News Tab Functionality
+// News Tab Functionality - Updated for Custom Color #070788
 document.addEventListener('DOMContentLoaded', function() {
     const latestTab = document.getElementById('latestTab');
     const popularTab = document.getElementById('popularTab');
@@ -464,34 +464,48 @@ document.addEventListener('DOMContentLoaded', function() {
     const popularContent = document.getElementById('popularContent');
     const viewAllText = document.getElementById('viewAllText');
 
-    // Tab switching function
-    function switchTab(activeTab, inactiveTab, activeContent, inactiveContent, buttonText) {
-        // Update tab styles
-        activeTab.classList.remove('bg-gray-300', 'text-gray-700');
-        activeTab.classList.add('bg-blue-600', 'text-white');
+    // Set initial active state
+    function setActiveTab(activeBtn, inactiveBtn, activeContent, inactiveContent) {
+        // Active tab: #070788 background, white text
+        activeBtn.style.backgroundColor = '#070788';
+        activeBtn.style.color = 'white';
+        activeBtn.classList.remove('bg-white', 'hover:bg-gray-100', 'text-black');
         
-        inactiveTab.classList.remove('bg-blue-600', 'text-white');
-        inactiveTab.classList.add('bg-gray-300', 'text-gray-700');
+        // Inactive tab: white background, black text
+        inactiveBtn.style.backgroundColor = 'white';
+        inactiveBtn.style.color = 'black';
+        inactiveBtn.classList.add('bg-white', 'hover:bg-gray-100', 'text-black');
         
         // Show/hide content
         activeContent.classList.remove('hidden');
         inactiveContent.classList.add('hidden');
-        
-        // Update button text
-        viewAllText.textContent = buttonText;
     }
 
-    // Latest tab click handler
-    latestTab.addEventListener('click', function() {
-        switchTab(latestTab, popularTab, latestContent, popularContent, 'সর্বশেষ সব খবর');
-    });
+    // Check if tab elements exist before adding event listeners
+    if (latestTab && popularTab && latestContent && popularContent) {
+        console.log('Tab functionality initialized with custom color #070788');
+        
+        // Latest tab click handler
+        latestTab.addEventListener('click', function() {
+            console.log('Latest tab clicked');
+            setActiveTab(latestTab, popularTab, latestContent, popularContent);
+        });
 
-    // Popular tab click handler
-    popularTab.addEventListener('click', function() {
-        switchTab(popularTab, latestTab, popularContent, latestContent, 'জনপ্রিয় সব খবর');
-    });
+        // Popular tab click handler
+        popularTab.addEventListener('click', function() {
+            console.log('Popular tab clicked');
+            setActiveTab(popularTab, latestTab, popularContent, latestContent);
+        });
+    } else {
+        console.log('Tab elements not found:', {
+            latestTab: !!latestTab,
+            popularTab: !!popularTab,
+            latestContent: !!latestContent,
+            popularContent: !!popularContent
+        });
+    }
 
-    // Poll option selection functionality
+    // Poll option selection functionality with custom color
     const pollOptions = document.querySelectorAll('.poll-option');
     
     pollOptions.forEach(option => {
@@ -499,18 +513,28 @@ document.addEventListener('DOMContentLoaded', function() {
             // Remove selected state from all options
             pollOptions.forEach(opt => {
                 const inner = opt.querySelector('.poll-inner');
-                inner.classList.remove('w-3', 'h-3');
-                inner.classList.add('w-0', 'h-0');
+                if (inner) {
+                    inner.classList.remove('w-3', 'h-3');
+                    inner.classList.add('w-0', 'h-0');
+                    inner.style.backgroundColor = '#070788'; // Use custom color
+                }
             });
             
             // Add selected state to clicked option
             const inner = this.querySelector('.poll-inner');
-            inner.classList.remove('w-0', 'h-0');
-            inner.classList.add('w-3', 'h-3');
+            if (inner) {
+                inner.classList.remove('w-0', 'h-0');
+                inner.classList.add('w-3', 'h-3');
+                inner.style.backgroundColor = '#070788'; // Use custom color
+            }
             
             // Update hidden radio input
             const input = this.querySelector('.poll-input');
-            input.checked = true;
+            if (input) {
+                input.checked = true;
+            }
+            
+            console.log('Poll option selected with custom color');
         });
     });
 });
