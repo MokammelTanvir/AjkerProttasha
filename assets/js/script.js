@@ -456,7 +456,7 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 
-// News Tab Functionality - Updated for Custom Color #070788
+// News Tab Functionality - Updated for Custom Color #070788 with Scrollable Support
 document.addEventListener('DOMContentLoaded', function() {
     const latestTab = document.getElementById('latestTab');
     const popularTab = document.getElementById('popularTab');
@@ -465,7 +465,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const viewAllText = document.getElementById('viewAllText');
 
     // Set initial active state
-    function setActiveTab(activeBtn, inactiveBtn, activeContent, inactiveContent) {
+    function setActiveTab(activeBtn, inactiveBtn, activeContent, inactiveContent, tabName) {
         // Active tab: #070788 background, white text
         activeBtn.style.backgroundColor = '#070788';
         activeBtn.style.color = 'white';
@@ -476,26 +476,91 @@ document.addEventListener('DOMContentLoaded', function() {
         inactiveBtn.style.color = 'black';
         inactiveBtn.classList.add('bg-white', 'hover:bg-gray-100', 'text-black');
         
-        // Show/hide content
+        // Show/hide content with smooth transition
         activeContent.classList.remove('hidden');
         inactiveContent.classList.add('hidden');
+        
+        // Update view all text based on active tab
+        if (viewAllText) {
+            viewAllText.textContent = tabName === 'latest' ? 'সর্বশেষ সব খবর' : 'সর্বাধিক পঠিত সব খবর';
+        }
+        
+        // Reset scroll position to top when switching tabs
+        const scrollContainer = activeContent.querySelector('.tab-scroll-container');
+        if (scrollContainer) {
+            scrollContainer.scrollTop = 0;
+        }
+        
+        // Add smooth scroll behavior to the active container
+        if (scrollContainer) {
+            scrollContainer.style.scrollBehavior = 'smooth';
+        }
+    }
+
+    // Initialize scroll behavior for both containers
+    function initializeScrollBehavior() {
+        const scrollContainers = document.querySelectorAll('.tab-scroll-container');
+        scrollContainers.forEach(container => {
+            // Add smooth scrolling
+            container.style.scrollBehavior = 'smooth';
+            
+            // Add scroll event listener for better UX
+            container.addEventListener('scroll', function() {
+                // Add subtle shadow when scrolled
+                if (this.scrollTop > 0) {
+                    this.style.boxShadow = 'inset 0 10px 10px -10px rgba(0,0,0,0.1)';
+                } else {
+                    this.style.boxShadow = 'none';
+                }
+            });
+            
+            // Add keyboard navigation support
+            container.addEventListener('keydown', function(e) {
+                if (e.key === 'ArrowDown') {
+                    e.preventDefault();
+                    this.scrollTop += 60; // Scroll by approximately one news item height
+                } else if (e.key === 'ArrowUp') {
+                    e.preventDefault();
+                    this.scrollTop -= 60;
+                } else if (e.key === 'PageDown') {
+                    e.preventDefault();
+                    this.scrollTop += this.clientHeight - 60;
+                } else if (e.key === 'PageUp') {
+                    e.preventDefault();
+                    this.scrollTop -= this.clientHeight - 60;
+                } else if (e.key === 'Home') {
+                    e.preventDefault();
+                    this.scrollTop = 0;
+                } else if (e.key === 'End') {
+                    e.preventDefault();
+                    this.scrollTop = this.scrollHeight;
+                }
+            });
+        });
     }
 
     // Check if tab elements exist before adding event listeners
     if (latestTab && popularTab && latestContent && popularContent) {
-        console.log('Tab functionality initialized with custom color #070788');
+        console.log('Tab functionality initialized with custom color #070788 and scrollable support');
+        
+        // Initialize scroll behavior
+        initializeScrollBehavior();
         
         // Latest tab click handler
         latestTab.addEventListener('click', function() {
-            console.log('Latest tab clicked');
-            setActiveTab(latestTab, popularTab, latestContent, popularContent);
+            console.log('Latest tab clicked - 15 news items available');
+            setActiveTab(latestTab, popularTab, latestContent, popularContent, 'latest');
         });
 
         // Popular tab click handler
         popularTab.addEventListener('click', function() {
-            console.log('Popular tab clicked');
-            setActiveTab(popularTab, latestTab, popularContent, latestContent);
+            console.log('Popular tab clicked - 15 news items available');
+            setActiveTab(popularTab, latestTab, popularContent, latestContent, 'popular');
         });
+        
+        // Set initial state
+        setActiveTab(latestTab, popularTab, latestContent, popularContent, 'latest');
+        
     } else {
         console.log('Tab elements not found:', {
             latestTab: !!latestTab,

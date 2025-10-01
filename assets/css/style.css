@@ -2987,3 +2987,98 @@ footer div:last-child::after {
     margin-bottom: 0.75rem !important;
   }
 }
+
+/* Tab Scrollable Container Styles */
+.tab-scroll-container {
+  scrollbar-width: thin;
+  scrollbar-color: #9ca3af #f3f4f6;
+}
+
+.tab-scroll-container::-webkit-scrollbar {
+  width: 6px;
+}
+
+.tab-scroll-container::-webkit-scrollbar-track {
+  background: #f3f4f6;
+  border-radius: 3px;
+}
+
+.tab-scroll-container::-webkit-scrollbar-thumb {
+  background: #9ca3af;
+  border-radius: 3px;
+  transition: background-color 0.3s ease;
+}
+
+.tab-scroll-container::-webkit-scrollbar-thumb:hover {
+  background: #6b7280;
+}
+
+/* Tab Content Smooth Scrolling */
+.tab-content {
+  transition: all 0.3s ease;
+}
+
+/* Tab Scroll Indicator (optional) */
+.tab-scroll-container::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  right: 8px;
+  width: 20px;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #070788);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+}
+
+.tab-scroll-container:hover::after {
+  opacity: 0.5;
+}
+
+/* Mobile Tab Scrolling Enhancements */
+@media (max-width: 768px) {
+  .tab-scroll-container {
+    max-height: 320px !important;
+    -webkit-scroll-behavior: smooth;
+    scroll-behavior: smooth;
+  }
+  
+  .tab-scroll-container::-webkit-scrollbar {
+    width: 4px;
+  }
+  
+  .tab-scroll-container::-webkit-scrollbar-thumb {
+    background: #070788;
+    border-radius: 2px;
+  }
+  
+  /* Add subtle shadow to indicate scrollable content */
+  .tab-scroll-container {
+    box-shadow: inset 0 -5px 10px -5px rgba(7, 7, 136, 0.1);
+  }
+}
+
+/* Tab News Item Hover Enhancement with Scrollable */
+.tab-scroll-container .divide-y > div:hover {
+  background: linear-gradient(90deg, #f8fafc, #f1f5f9);
+  transform: translateX(2px);
+  transition: all 0.3s ease;
+}
+
+/* Tab Scroll Container Focus Styles */
+.tab-scroll-container:focus-within {
+  box-shadow: 0 0 0 2px rgba(7, 7, 136, 0.2);
+  border-radius: 4px;
+}
+
+/* Better contrast for scrollable content */
+.tab-scroll-container .p-4 {
+  border-left: 2px solid transparent;
+  transition: all 0.3s ease;
+}
+
+.tab-scroll-container .p-4:hover {
+  border-left-color: #070788;
+  background-color: rgba(7, 7, 136, 0.05);
+}
