@@ -1303,13 +1303,40 @@ a:hover {
   border-top-color: #dc2626; /* red-600 on hover */
 }
 
-/* Active Card Styling */
+/* Border Animation for News Cards with border-t-2 */
+.news-card.border-t-2 {
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.news-card:hover.border-t-2 {
+  border-top-color: #dc2626 !important; /* red-600 on hover */
+}
+
+/* Ensure active card overrides hover state */
+.news-card.active-card.border-t-2 {
+  border-top-color: #dc2626 !important; /* red-600 for active - higher specificity */
+}
+
+.news-card.active-card.border-t-2:hover {
+  border-top-color: #b91c1c !important; /* darker red on hover for active card */
+}
+
+/* Active Card Styling - Enhanced */
 .news-card.active-card {
   border-top-color: #dc2626 !important; /* red-600 for active */
+  background-color: #fef2f2 !important; /* red-50 background for active */
+  box-shadow: 0 4px 12px rgba(220, 38, 38, 0.15) !important; /* subtle red shadow */
+  transform: translateY(-2px) !important; /* slight lift */
 }
 
 .news-card.active-card .news-title {
   color: #dc2626 !important; /* red-600 for active title */
+  font-weight: 600 !important; /* make title bolder */
+}
+
+.news-card.active-card .news-excerpt {
+  color: #374151 !important; /* darker gray for better readability on red background */
 }
 
 /* Additional styling for news excerpts */

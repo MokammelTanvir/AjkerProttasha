@@ -712,11 +712,11 @@
                         <!-- Left - News Details -->
                         <div class="md:w-1/3 bg-white p-6 border-t-2 border-red-600 hover:border-red-600 transition-all duration-700 ease-out cursor-pointer">
                             <div id="heroNewsDetails">
-                                <span class="inline-block bg-red-600 text-white px-3 py-1 text-sm font-semibold rounded-full mb-3">
-                                    সর্বশেষ
+                                <span class="inline-block text-blue-600 text-lg font-bold mb-3" style="color: #070788;">
+                                    সোল্ডার
                                 </span>
-                                <h1 id="heroNewsTitle" class="text-xl md:text-2xl font-bold mb-3 leading-tight text-red-600"></h1>
-                                    <a href="single-news.html" class="hover:text-red-700 transition-colors duration-500 ease-out">জাতিসংঘের মহাসচিব বাংলাদেশের সাম্প্রতিক অগ্রগতির প্রশংসা করেছেন</a>
+                                <h1 id="heroNewsTitle" class="text-xl md:text-2xl font-bold mb-3 leading-tight text-red-600">
+                                    <a href="single-news.html" class="text-red-600 hover:text-red-700 transition-colors duration-500 ease-out active-card">জাতিসংঘের মহাসচিব বাংলাদেশের সাম্প্রতিক অগ্রগতির প্রশংসা করেছেন</a>
                                 </h1>
                                 <p id="heroNewsDescription" class="text-gray-600 text-sm md:text-base leading-relaxed">
                                     জাতিসংঘের মহাসচিব আন্তোনিও গুতেরেস বাংলাদেশের আর্থসামাজিক উন্নয়ন এবং জলবায়ু পরিবর্তন মোকাবেলায় অগ্রণী ভূমিকার জন্য প্রশংসা করেছেন। তিনি বলেন, বাংলাদেশ উন্নয়নশীল দেশগুলোর জন্য একটি অনুকরণীয় উদাহরণ হয়ে উঠেছে।
@@ -735,7 +735,7 @@
                     <!-- News Cards Grid (No Images, Just Titles with Descriptions) -->
                     <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
                         <!-- News Card 1 - Default Active -->
-                        <div class="news-card bg-white p-5 cursor-pointer transition-all duration-700 ease-out active-card border-t-2 border-red-600 0" 
+                        <div class="news-card bg-white p-5 cursor-pointer transition-all duration-700 ease-out active-card border-t-2 border-red-600" 
                              data-title="জাতিসংঘের মহাসচিব বাংলাদেশের সাম্প্রতিক অগ্রগতির প্রশংসা করেছেন"
                              data-description="জাতিসংঘের মহাসচিব আন্তোনিও গুতেরেস বাংলাদেশের আর্থসামাজিক উন্নয়ন এবং জলবায়ু পরিবর্তন মোকাবেলায় অগ্রণী ভূমিকার জন্য প্রশংসা করেছেন। তিনি বলেন, বাংলাদেশ উন্নয়নশীল দেশগুলোর জন্য একটি অনুকরণীয় উদাহরণ হয়ে উঠেছে।"
                              data-image="assets/img/hero.png">
@@ -748,7 +748,7 @@
                         </div>
 
                         <!-- News Card 2 -->
-                        <div class="news-card bg-white p-5 cursor-pointer transition-all duration-700 ease-out border-t-2 border-blue-600 " 
+                        <div class="news-card bg-white p-5 cursor-pointer transition-all duration-700 ease-out border-t-2 border-gray-500" 
                              data-title="শিক্ষা ব্যবস্থায় নতুন সংস্কার আনা হবে আগামী বছর থেকে"
                              data-description="সরকার শিক্ষা ব্যবস্থায় আমূল পরিবর্তন আনার পরিকল্পনা করছে। নতুন কারিকুলাম এবং শিক্ষা পদ্ধতি চালু করা হবে যা শিক্ষার্থীদের দক্ষতা বৃদ্ধিতে সহায়ক হবে। এই সংস্কারের মাধ্যমে দেশের শিক্ষা ব্যবস্থা আরও আধুনিক ও কার্যকর হয়ে উঠবে।"
                              data-image="assets/img/new1.png">
@@ -761,7 +761,7 @@
                         </div>
 
                         <!-- News Card 3 -->
-                        <div class="news-card bg-white p-5 cursor-pointer transition-all duration-700 ease-out border-t-2 border-blue-600 " 
+                        <div class="news-card bg-white p-5 cursor-pointer transition-all duration-700 ease-out border-t-2 border-gray-500" 
                              data-title="অর্থনৈতিক প্রবৃদ্ধি অব্যাহত রাখতে নতুন নীতিমালা প্রণয়ন"
                              data-description="দেশের অর্থনৈতিক প্রবৃদ্ধি ত্বরান্বিত করতে সরকার নতুন নীতিমালা প্রণয়ন করেছে। এই নীতিমালার আওতায় বিনিয়োগ বৃদ্ধি, কর্মসংস্থান সৃষ্টি এবং রপ্তানি বাড়ানোর উপর বিশেষ গুরুত্ব দেওয়া হয়েছে। অর্থমন্ত্রী বলেছেন এটি দেশের অর্থনীতিতে নতুন মাত্রা যোগ করবে।"
                              data-image="assets/img/news3.png">
@@ -776,6 +776,7 @@
 
                     <!-- Horizontal Divider -->
                     <div class="mt-8 mb-8">
+                        <hr class="border-1 border-gray-500">
                     </div>
 
                     <!-- News Grid Section -->

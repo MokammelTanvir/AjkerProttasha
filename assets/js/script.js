@@ -396,6 +396,23 @@ document.addEventListener('DOMContentLoaded', function() {
     const originalDescription = activeCard ? activeCard.getAttribute('data-description') : heroNewsDescription.textContent;
     const originalImage = activeCard ? activeCard.getAttribute('data-image') : heroNewsImage.src;
 
+    // Initialize active card appearance on page load
+    if (activeCard) {
+        const activeTitle = activeCard.querySelector('.news-title');
+        // Ensure active card has proper styling from the start
+        activeCard.style.borderTopColor = '#dc2626'; // red-600
+        activeCard.style.backgroundColor = '#fef2f2'; // red-50
+        activeCard.style.boxShadow = '0 4px 12px rgba(220, 38, 38, 0.15)';
+        activeCard.style.transform = 'translateY(-2px)';
+        
+        if (activeTitle) {
+            activeTitle.style.color = '#dc2626'; // red-600
+            activeTitle.style.fontWeight = '600'; // bold
+        }
+        
+        console.log('Active card initialized with enhanced styling');
+    }
+
     newsCards.forEach(function(card) {
         const newsTitle = card.querySelector('.news-title');
         
