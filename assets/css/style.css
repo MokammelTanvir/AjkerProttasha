@@ -20,6 +20,381 @@
   background-color: #05055f !important;
 }
 
+/* Additional mobile navigation color overrides */
+button:hover[class*="hover:bg-blue"],
+a:hover[class*="hover:bg-blue"] {
+  background-color: #05055f !important;
+}
+
+/* Force mobile navigation container color */
+.mobile-nav-container,
+#mobileNavbar {
+  background-color: #070788 !important;
+}
+
+/* Override any blue Tailwind classes in mobile navigation */
+.mobile-nav-container *,
+#mobileNavbar * {
+  --tw-bg-opacity: 1 !important;
+}
+
+/* Force all Tailwind blue colors to theme color */
+[class*="bg-blue"],
+[class*="hover:bg-blue"]:hover,
+button[class*="bg-blue"],
+button[class*="hover:bg-blue"]:hover {
+  background-color: #070788 !important;
+}
+
+/* Force mobile menu buttons to use theme color */
+.mobile-home-btn,
+.mobile-hamburger-btn {
+  background-color: #070788 !important;
+}
+
+.mobile-home-btn:hover,
+.mobile-hamburger-btn:hover {
+  background-color: #05055f !important;
+}
+
+/* Override blue text colors */
+.text-blue-600,
+.text-blue-100,
+.text-blue-400,
+.text-blue-500,
+.text-blue-700,
+.text-blue-800 {
+  color: #070788 !important;
+}
+
+.hover\:text-blue-600:hover,
+.hover\:text-blue-400:hover,
+.hover\:text-blue-500:hover {
+  color: #05055f !important;
+}
+
+/* Social media icon overrides */
+.w-10.bg-blue-600,
+.w-10.bg-blue-400,
+.w-10.bg-blue-700 {
+  background-color: #070788 !important;
+}
+
+.w-10.bg-blue-600:hover,
+.w-10.bg-blue-400:hover,
+.w-10.bg-blue-700:hover {
+  background-color: #05055f !important;
+}
+
+/* Final override for any remaining blue elements - ensuring theme consistency */
+
+/* Force all Tailwind blue background colors to theme color - FINAL OVERRIDE */
+.bg-blue-50, .bg-blue-100, .bg-blue-200, .bg-blue-300, 
+.bg-blue-400, .bg-blue-500, .bg-blue-600, .bg-blue-700, 
+.bg-blue-800, .bg-blue-900 {
+  background-color: #070788 !important;
+}
+
+/* Force all Tailwind blue text colors to theme color - FINAL OVERRIDE */
+.text-blue-50, .text-blue-100, .text-blue-200, .text-blue-300, 
+.text-blue-400, .text-blue-500, .text-blue-600, .text-blue-700, 
+.text-blue-800, .text-blue-900 {
+  color: #070788 !important;
+}
+
+/* Force all Tailwind blue hover states to theme color - FINAL OVERRIDE */
+.hover\:bg-blue-50:hover, .hover\:bg-blue-100:hover, .hover\:bg-blue-200:hover, .hover\:bg-blue-300:hover,
+.hover\:bg-blue-400:hover, .hover\:bg-blue-500:hover, .hover\:bg-blue-600:hover, .hover\:bg-blue-700:hover,
+.hover\:bg-blue-800:hover, .hover\:bg-blue-900:hover {
+  background-color: #05055f !important;
+}
+
+.hover\:text-blue-50:hover, .hover\:text-blue-100:hover, .hover\:text-blue-200:hover, .hover\:text-blue-300:hover,
+.hover\:text-blue-400:hover, .hover\:text-blue-500:hover, .hover\:text-blue-600:hover, .hover\:text-blue-700:hover,
+.hover\:text-blue-800:hover, .hover\:text-blue-900:hover {
+  color: #05055f !important;
+}
+
+/* Special override for news title hover - highest priority */
+h3.hover\:text-blue-600:hover,
+.hover\:text-blue-600:hover {
+  color: #05055f !important;
+}
+
+/* Ensure all text-blue classes use theme color */
+span.text-blue-600,
+.text-blue-600 {
+  color: #070788 !important;
+}
+
+/* Mobile Banner Full Width - Break out of container */
+@media (max-width: 767px) {
+  section.bg-white.py-0 {
+    margin-left: -1rem !important;
+    margin-right: -1rem !important;
+    width: calc(100% + 2rem) !important;
+  }
+  
+  /* Ensure banner takes full viewport width */
+  section.bg-white.py-0 > div > div {
+    border-radius: 0 !important;
+    width: 100vw !important;
+    position: relative;
+    left: 50%;
+    right: 50%;
+    margin-left: -50vw !important;
+    margin-right: -50vw !important;
+  }
+  
+  /* Keep banner text centered in mobile */
+  section.bg-white.py-0 .text-center {
+    text-align: center !important;
+    display: flex;
+    flex-direction: column;
+    align-items: center !important;
+    justify-content: center !important;
+    width: 100% !important;
+  }
+  
+  /* Ensure banner content container stays centered */
+  section.bg-white.py-0 .relative.z-10 {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    text-align: center !important;
+  }
+  
+  /* YouTube Slider Full Width in Mobile */
+  section.bg-gray-100.py-6 {
+    margin-left: -1rem !important;
+    margin-right: -1rem !important;
+    width: calc(100% + 2rem) !important;
+  }
+  
+  /* YouTube slider container full width */
+  section.bg-gray-100.py-6 > div {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    max-width: none !important;
+    width: 100% !important;
+  }
+  
+  /* Video slider container full width */
+  .video-slider-container {
+    padding-left: 1rem !important;
+    padding-right: 1rem !important;
+  }
+  
+  /* YouTube News Card Container Full Width in Mobile */
+  section.bg-white.py-12 {
+    margin-left: -1rem !important;
+    margin-right: -1rem !important;
+    width: calc(100% + 2rem) !important;
+  }
+  
+  /* YouTube news card container - centered */
+  section.bg-white.py-12 > div {
+    padding-left: 1rem !important;
+    padding-right: 1rem !important;
+    max-width: none !important;
+    width: 100% !important;
+  }
+  
+  /* Center the multimedia card */
+  section.bg-white.py-12 .rounded-2xl {
+    margin-left: auto !important;
+    margin-right: auto !important;
+    max-width: calc(100vw - 2rem) !important;
+  }
+  
+  /* Main video player mobile fixes */
+  .flex.flex-col.lg\:flex-row {
+    flex-direction: column !important;
+  }
+  
+  /* Left side video player mobile */
+  .lg\:w-1\/2 {
+    width: 100% !important;
+    margin-top: 0 !important;
+    padding: 1rem !important;
+  }
+  
+  /* Video player aspect ratio mobile */
+  .relative.aspect-video {
+    aspect-ratio: 16/9 !important;
+    width: 100% !important;
+  }
+  
+  /* Main video player area */
+  #mainVideoPlayer {
+    width: 100% !important;
+    height: 100% !important;
+  }
+  
+  /* Thumbnail image mobile */
+  #mainThumbnail {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+  }
+  
+  /* Binodon Slider Mobile - Full Width Container */
+  .binodon-slider-container {
+    margin: 0 !important;
+    padding: 0 !important;
+    width: 100% !important;
+    overflow: hidden !important;
+    position: relative !important;
+    left: -1.25rem !important;
+  }
+  
+  /* Binodon slider mobile layout - full width */
+  .lg\:w-1\/2.relative {
+    width: 100% !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    transform: translateX(-1rem) !important;
+  }
+  
+  /* Binodon slider content - full width */
+  .binodon-slider {
+    width: 100% !important;
+    display: flex !important;
+    margin-left: -1rem !important;
+  }
+  
+  /* Binodon slide mobile - one card per view */
+  .binodon-slide {
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    gap: 1rem !important;
+    padding: 0 1rem !important;
+    min-width: 100% !important;
+  }
+  
+  /* Binodon cards mobile - full width and bigger */
+  .binodon-slide .bg-white {
+    width: 100% !important;
+    max-width: none !important;
+    margin: 0 !important;
+  }
+  
+  /* Binodon card image mobile - bigger height */
+  .binodon-slide .bg-white img {
+    height: 200px !important;
+    width: 100% !important;
+    object-fit: cover !important;
+  }
+  
+  /* Binodon card content mobile */
+  .binodon-slide .bg-white .p-4 {
+    padding: 1.5rem !important;
+  }
+  
+  /* Binodon navigation buttons mobile */
+  #binodonPrevBtn {
+    left: 8px !important;
+    z-index: 15 !important;
+  }
+  
+  #binodonNextBtn {
+    right: 8px !important;
+    z-index: 15 !important;
+  }
+  
+  /* Binodon section mobile layout */
+  .flex.flex-col.lg\:flex-row.gap-6 {
+    flex-direction: column !important;
+    gap: 1.5rem !important;
+  }
+  
+  /* Shastho (স্বাস্থ্য) Section Mobile - Full Width */
+  section .shastho-slider-container {
+    margin-left: -1rem !important;
+    margin-right: -1rem !important;
+    width: calc(100% + 2rem) !important;
+  }
+  
+  /* Shastho slider container mobile */
+  .shastho-slider-container {
+    margin: 0 !important;
+    padding: 0 !important;
+    width: 100% !important;
+    overflow: hidden !important;
+  }
+  
+  /* Shastho slider mobile - one card per view */
+  .shastho-slider {
+    width: 100% !important;
+  }
+  
+  /* Shastho slide mobile */
+  .shastho-slide {
+    min-width: 100% !important;
+    padding: 0 0.5rem !important;
+  }
+  
+  /* Shastho cards mobile - bigger images and full width */
+  .shastho-slide .bg-white {
+    width: 100% !important;
+    margin: 0 0 1rem 0 !important;
+  }
+  
+  /* Shastho card images mobile - bigger size */
+  .shastho-slide .bg-white img {
+    height: 220px !important;
+    width: 100% !important;
+    object-fit: cover !important;
+  }
+  
+  /* Shastho card content mobile */
+  .shastho-slide .bg-white .p-4 {
+    padding: 1.5rem !important;
+  }
+  
+  /* Video Cards Full Width in Mobile */
+  .video-card-wrapper {
+    width: calc(100vw - 2rem) !important;
+    max-width: none !important;
+    flex: none !important;
+    margin-left: 0.5rem !important;
+    margin-right: 0.5rem !important;
+  }
+  
+  /* Video Slider Full Width */
+  #videoSlider {
+    gap: 0 !important;
+  }
+  
+  /* Video Card Styling */
+  .video-card {
+    width: 100% !important;
+    margin: 0 !important;
+  }
+  
+  /* Slider Navigation Buttons Mobile Positioning */
+  .slider-nav-btn {
+    z-index: 20 !important;
+    background-color: rgba(255, 255, 255, 0.9) !important;
+    border-radius: 50% !important;
+    width: 40px !important;
+    height: 40px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+  }
+}
+
+/* Desktop Video Cards - Normal Width */
+@media (min-width: 768px) {
+  .video-card-wrapper {
+    width: 320px !important;
+    margin-left: 0.5rem !important;
+    margin-right: 0.5rem !important;
+  }
+}
+}
+
 .border-blue-600 {
   border-color: #070788 !important;
 }
@@ -330,7 +705,7 @@ a:hover {
 }
 
 .mobile-home-btn:hover {
-  background-color: rgb(37 99 235);
+  background-color: #05055f;
   color: white;
 }
 
@@ -351,7 +726,7 @@ a:hover {
 }
 
 .mobile-hamburger-btn:hover {
-  background-color: rgb(37 99 235);
+  background-color: #05055f;
 }
 
 /* Default desktop display - Force show */
@@ -502,7 +877,7 @@ a:hover {
     padding: 0.5rem 1rem !important;
     width: 100% !important;
     min-height: 50px !important;
-    background-color: rgb(37 99 235) !important;
+    background-color: #070788 !important;
     flex-wrap: nowrap !important;
     margin: 0 !important;
   }
@@ -981,6 +1356,144 @@ a:hover {
   #shasthoNextBtn {
     position: absolute !important;
     z-index: 10 !important;
+  }
+  
+  /* YouTube Slider Full Width in Mobile - Like Banner */
+  section.bg-gray-100.py-6 {
+    margin-left: -1rem !important;
+    margin-right: -1rem !important;
+    width: calc(100% + 2rem) !important;
+  }
+  
+  /* YouTube slider container full width */
+  section.bg-gray-100.py-6 > div {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    max-width: none !important;
+    width: 100% !important;
+  }
+  
+  /* Video Cards Mobile - Bigger width + half card visible */
+  .video-card-wrapper {
+    width: calc(80vw) !important;
+    max-width: none !important;
+    flex: none !important;
+    margin-left: 0.5rem !important;
+    margin-right: 0.5rem !important;
+  }
+  
+  /* Video Slider Full Width */
+  #videoSlider {
+    gap: 0 !important;
+  }
+  
+  /* Video Card Styling */
+  .video-card {
+    width: 100% !important;
+    margin: 0 !important;
+  }
+  
+  /* Video slider container mobile optimization */
+  .video-slider-container {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+  }
+  
+  /* Slider wrapper - allow arrows to overflow */
+  .video-slider-container .overflow-hidden {
+    padding-left: 0.75rem !important;
+    padding-right: 0.75rem !important;
+    overflow: visible !important;
+  }
+  
+  /* But keep horizontal overflow hidden for slider */
+  .video-slider-container .overflow-hidden {
+    overflow-x: hidden !important;
+    overflow-y: visible !important;
+  }
+  
+  /* Navigation buttons mobile positioning - enhanced */
+  .video-slider-container .slider-nav-btn {
+    width: 44px !important;
+    height: 44px !important;
+    background-color: rgba(255, 255, 255, 0.98) !important;
+    border-radius: 50% !important;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2) !important;
+    border: 1px solid rgba(0, 0, 0, 0.1) !important;
+    z-index: 25 !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    position: absolute !important;
+    top: 50% !important;
+    transform: translateY(-50%) !important;
+  }
+  
+  .video-slider-container #prevBtn {
+    left: 4px !important;
+  }
+  
+  .video-slider-container #nextBtn {
+    right: 4px !important;
+  }
+  
+  /* Extra specificity for mobile buttons */
+  body .bg-gray-100 .video-slider-container #prevBtn {
+    left: 4px !important;
+  }
+  
+  body .bg-gray-100 .video-slider-container #nextBtn {
+    right: 4px !important;
+  }
+  
+  /* Force mobile YouTube slider button positions with highest priority */
+  section.bg-gray-100.py-6 .video-slider-container button#prevBtn {
+    left: 4px !important;
+    position: absolute !important;
+  }
+  
+  section.bg-gray-100.py-6 .video-slider-container button#nextBtn {
+    right: 4px !important;
+    position: absolute !important;
+  }
+  
+  /* Ensure video slider container allows overflow for buttons */
+  .video-slider-container {
+    position: relative !important;
+    overflow: visible !important;
+  }
+  
+  /* Force navigation buttons to appear above everything */
+  #prevBtn, #nextBtn {
+    z-index: 999 !important;
+    position: absolute !important;
+  }
+  
+  /* Specific override for right button positioning - symmetrical with left */
+  section .video-slider-container button#nextBtn,
+  .bg-gray-100 button#nextBtn {
+    right: 4px !important;
+    z-index: 999 !important;
+  }
+}
+
+/* Desktop Video Cards - Normal Width */
+@media (min-width: 768px) {
+  .video-card-wrapper {
+    width: 320px !important;
+    margin-left: 0.5rem !important;
+    margin-right: 0.5rem !important;
+  }
+  
+  section.bg-gray-100.py-6 {
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    width: auto !important;
+  }
+  
+  section.bg-gray-100.py-6 > div {
+    padding-left: 1rem !important;
+    padding-right: 1rem !important;
   }
 }
 
@@ -2691,7 +3204,7 @@ footer div:last-child::after {
     z-index: 10;
   }
   
-  /* Mobile slider behavior - keep slider functionality */
+  /* Mobile slider behavior - smooth slide transitions */
   .binodon-slider {
     display: flex !important;
     transition: transform 0.3s ease-in-out !important;
@@ -2703,16 +3216,29 @@ footer div:last-child::after {
     flex-shrink: 0 !important;
   }
   
-  /* Mobile grid layout - show 1 card per slide */
+  /* Mobile: Show only 1 card per slide (hide other cards) */
   .binodon-slide .grid.grid-cols-3.gap-4 {
     grid-template-columns: 1fr !important;
     gap: 1rem !important;
     display: grid !important;
   }
   
+  /* Hide extra cards on mobile - show only first card of each slide */
+  .binodon-slide .bg-white:nth-child(n+2) {
+    display: none !important;
+  }
+  
+  /* Make the visible card full width and properly sized */
+  .binodon-slide .bg-white:first-child {
+    width: 100% !important;
+    margin: 0 auto !important;
+  }
+  
   /* Adjust card heights for mobile */
   .binodon-slide .bg-white img {
     height: 200px !important;
+    width: 100% !important;
+    object-fit: cover !important;
   }
   
   /* Mobile layout for binodon section main container only */
@@ -3108,4 +3634,125 @@ footer div:last-child::after {
 .tab-scroll-container .p-4:hover {
   border-left-color: #070788;
   background-color: rgba(7, 7, 136, 0.05);
+}
+
+/* লাইফস্টাইল section mobile optimizations */
+@media (max-width: 768px) {
+  /* Main lifestyle section container full width */
+  .lifestyle-container {
+    width: calc(100% + 2rem) !important;
+    margin-left: -1rem !important;
+    margin-right: -1rem !important;
+  }
+  
+  .lifestyle-container h2 {
+    color: #070788 !important;
+  }
+  
+  /* Main large news card - make it vertical on mobile */
+  .lifestyle-container .flex:has(div.w-3\/5) {
+    flex-direction: column !important;
+  }
+  
+  .lifestyle-container .flex .w-3\/5 {
+    width: 100% !important;
+  }
+  
+  .lifestyle-container .flex .w-2\/5 {
+    width: 100% !important;
+  }
+  
+  .lifestyle-container .flex img {
+    height: 250px !important;
+    width: 100% !important;
+    object-fit: cover !important;
+  }
+  
+  /* Three cards grid - make them stack vertically on mobile */
+  .lifestyle-container .grid-cols-1.md\:grid-cols-3 {
+    grid-template-columns: 1fr !important;
+    gap: 1rem !important;
+  }
+  
+  .lifestyle-container .grid img {
+    height: 200px !important;
+    width: 100% !important;
+    object-fit: cover !important;
+  }
+}
+
+/* তথ্যপ্রযুক্তি section mobile optimizations */
+@media (max-width: 768px) {
+  /* Main tech section container full width */
+  .tothoprojukti-container {
+    width: calc(100% + 2rem) !important;
+    margin-left: -1rem !important;
+    margin-right: -1rem !important;
+    margin-top: 2rem !important;
+  }
+  
+  .tothoprojukti-container h2 {
+    color: #070788 !important;
+  }
+  
+  /* Large image card - image first, then text */
+  .tothoprojukti-container .bg-white .relative {
+    order: -1;
+  }
+  
+  .tothoprojukti-container .bg-white img {
+    height: 220px !important;
+    width: 100% !important;
+    object-fit: cover !important;
+  }
+  
+  /* News cards with title left, image right - make them vertical */
+  .tothoprojukti-container .flex.gap-3 {
+    flex-direction: column !important;
+  }
+  
+  .tothoprojukti-container .flex.gap-3 .w-1\/2 {
+    width: 100% !important;
+  }
+  
+  /* Image should come first, then title */
+  .tothoprojukti-container .flex.gap-3 > div:nth-child(2) {
+    order: -1;
+  }
+  
+  .tothoprojukti-container .flex.gap-3 img {
+    height: 180px !important;
+    width: 100% !important;
+    object-fit: cover !important;
+    margin-bottom: 1rem !important;
+  }
+}
+
+/* Footer menu mobile optimizations - 2 columns per row */
+@media (max-width: 768px) {
+  .footer-menu-container {
+    display: grid !important;
+    grid-template-columns: 1fr 1fr !important;
+    gap: 1rem !important;
+    justify-items: center !important;
+    align-items: center !important;
+  }
+  
+  /* Hide pipe separators on mobile */
+  .footer-menu-container > div:nth-child(even) {
+    display: none !important;
+  }
+  
+  /* Menu items styling */
+  .footer-menu-container > div:nth-child(odd) {
+    width: 100% !important;
+    text-align: center !important;
+    padding: 0.5rem !important;
+  }
+  
+  /* Make menu text smaller on mobile */
+  .footer-menu-container a {
+    font-size: 1rem !important;
+    line-height: 1.2 !important;
+  }
 }

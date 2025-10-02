@@ -964,11 +964,19 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 // Binodon Section Slider Functionality
-document.addEventListener('DOMContentLoaded', function() {
+function initializeBinodonSlider() {
+    console.log('Initializing Binodon Slider...');
     const binodonSlider = document.querySelector('.binodon-slider');
     const binodonPrevBtn = document.getElementById('binodonPrevBtn');
     const binodonNextBtn = document.getElementById('binodonNextBtn');
     const binodonSlides = document.querySelectorAll('.binodon-slide');
+    
+    console.log('Binodon Elements Found:', {
+        slider: !!binodonSlider,
+        prevBtn: !!binodonPrevBtn,
+        nextBtn: !!binodonNextBtn,
+        slidesCount: binodonSlides.length
+    });
     
     if (binodonSlider && binodonPrevBtn && binodonNextBtn && binodonSlides.length > 0) {
         let currentSlide = 0;
@@ -985,64 +993,28 @@ document.addEventListener('DOMContentLoaded', function() {
             return allCards;
         }
         
-        // Initialize slider
-        updateSliderPosition();
-        
-        // Previous button click
-        binodonPrevBtn.addEventListener('click', function() {
-            if (isMobile) {
-                const allCards = getAllCards();
-                currentMobileCard = currentMobileCard === 0 ? allCards.length - 1 : currentMobileCard - 1;
-            } else {
-                currentSlide = currentSlide === 0 ? binodonSlides.length - 1 : currentSlide - 1;
-            }
-            updateSliderPosition();
-        });
-        
-        // Next button click
-        binodonNextBtn.addEventListener('click', function() {
-            if (isMobile) {
-                const allCards = getAllCards();
-                currentMobileCard = currentMobileCard === allCards.length - 1 ? 0 : currentMobileCard + 1;
-            } else {
-                currentSlide = currentSlide === binodonSlides.length - 1 ? 0 : currentSlide + 1;
-            }
-            updateSliderPosition();
-        });
-        
         // Update slider position
         function updateSliderPosition() {
+            console.log('Updating slider position. Mobile:', isMobile, 'Current card:', currentMobileCard, 'Current slide:', currentSlide);
             if (isMobile) {
-                // Mobile: Show one card at a time
-                const allCards = getAllCards();
-                
-                // Hide all slides first
-                binodonSlides.forEach(slide => {
-                    slide.style.display = 'none';
-                });
-                
-                // Show only the slide containing current card
-                allCards.forEach((card, index) => {
-                    const parentSlide = card.closest('.binodon-slide');
-                    const cards = parentSlide.querySelectorAll('.bg-white');
-                    
-                    if (index === currentMobileCard) {
-                        parentSlide.style.display = 'block';
-                        cards.forEach(c => c.style.display = 'none');
-                        card.style.display = 'block';
-                    }
-                });
-                
-                binodonSlider.style.transform = 'translateX(0%)';
-            } else {
-                // Desktop: original behavior - show slides with 6 cards each
+                // Mobile: Simple slide-based navigation, but CSS will show only 1 card per slide
                 binodonSlides.forEach((slide, index) => {
-                    if (index === currentSlide) {
-                        slide.style.display = 'block';
-                    } else {
-                        slide.style.display = 'none';
-                    }
-                    
+                    slide.style.display = 'block';
+                    const cards = slide.querySelectorAll('.bg-white');
+                    cards.forEach(card => {
+                        card.style.display = 'block';
+                    });
+                });
+                
+                // Use slide-based navigation for mobile too, but CSS handles single card display
+                const translateX = -currentSlide * 100;
+                console.log('Mobile sliding to slide', currentSlide, 'with translateX:', translateX + '%');
+                binodonSlider.style.transform = `translateX(${translateX}%)`;
+                
+            } else {
+                // Desktop: original behavior - show slides with multiple cards each
+                binodonSlides.forEach((slide, index) => {
+                    slide.style.display = 'block';
                     // Show all cards in each slide for desktop
                     const cards = slide.querySelectorAll('.bg-white');
                     cards.forEach(card => {
@@ -1051,9 +1023,29 @@ document.addEventListener('DOMContentLoaded', function() {
                 });
                 
                 const translateX = -currentSlide * 100;
+                console.log('Desktop sliding to slide', currentSlide, 'with translateX:', translateX + '%');
                 binodonSlider.style.transform = `translateX(${translateX}%)`;
             }
         }
+        
+        // Initialize slider
+        updateSliderPosition();
+        
+        // Previous button click
+        binodonPrevBtn.addEventListener('click', function() {
+            console.log('Binodon Previous button clicked. Mobile:', isMobile);
+            currentSlide = currentSlide === 0 ? binodonSlides.length - 1 : currentSlide - 1;
+            console.log('Slide changed to', currentSlide);
+            updateSliderPosition();
+        });
+        
+        // Next button click
+        binodonNextBtn.addEventListener('click', function() {
+            console.log('Binodon Next button clicked. Mobile:', isMobile);
+            currentSlide = currentSlide === binodonSlides.length - 1 ? 0 : currentSlide + 1;
+            console.log('Slide changed to', currentSlide);
+            updateSliderPosition();
+        });
         
         // Handle responsive behavior
         function handleBinodonResponsive() {
@@ -1082,6 +1074,24 @@ document.addEventListener('DOMContentLoaded', function() {
     } else {
         console.log('Binodon slider elements not found');
     }
+}
+
+// Initialize Binodon slider with proper timing
+document.addEventListener('DOMContentLoaded', function() {
+    // Initialize immediately
+    initializeBinodonSlider();
+    
+    // Also initialize after a short delay to ensure CSS is fully loaded
+    setTimeout(function() {
+        initializeBinodonSlider();
+    }, 100);
+    
+    // Initialize again after full page load
+    window.addEventListener('load', function() {
+        setTimeout(function() {
+            initializeBinodonSlider();
+        }, 200);
+    });
 });
 
 // Global function to make it accessible from HTML onclick
